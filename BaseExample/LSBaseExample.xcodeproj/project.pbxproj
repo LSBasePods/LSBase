@@ -13,6 +13,8 @@
 		DE4F38E31C11763B00D64EF6 /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E21C11763B00D64EF6 /* NSObject+KVO.m */; };
 		DE4F38E61C11781600D64EF6 /* NSString+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E51C11781600D64EF6 /* NSString+LS.m */; };
 		DE4F38E91C117D3200D64EF6 /* LSCommonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E81C117D3200D64EF6 /* LSCommonInfo.m */; };
+		DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */; };
+		DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */; };
 		DE7B5C321C11256A00904476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C311C11256A00904476 /* main.m */; };
 		DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C341C11256A00904476 /* AppDelegate.m */; };
 		DE7B5C381C11256A00904476 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C371C11256A00904476 /* ViewController.m */; };
@@ -64,6 +66,10 @@
 		DE4F38E51C11781600D64EF6 /* NSString+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LS.m"; sourceTree = "<group>"; };
 		DE4F38E71C117D3200D64EF6 /* LSCommonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCommonInfo.h; sourceTree = "<group>"; };
 		DE4F38E81C117D3200D64EF6 /* LSCommonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCommonInfo.m; sourceTree = "<group>"; };
+		DE4F38EA1C1198B500D64EF6 /* LSFileAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSFileAssistant.h; sourceTree = "<group>"; };
+		DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSFileAssistant.m; sourceTree = "<group>"; };
+		DE4F38EC1C1198B500D64EF6 /* LSPhoneCallHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPhoneCallHelper.h; sourceTree = "<group>"; };
+		DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPhoneCallHelper.m; sourceTree = "<group>"; };
 		DE7B5C2D1C11256A00904476 /* LSBaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSBaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7B5C311C11256A00904476 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE7B5C331C11256A00904476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -288,6 +294,10 @@
 		DE7B5C821C112D4100904476 /* LSUtility */ = {
 			isa = PBXGroup;
 			children = (
+				DE4F38EA1C1198B500D64EF6 /* LSFileAssistant.h */,
+				DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */,
+				DE4F38EC1C1198B500D64EF6 /* LSPhoneCallHelper.h */,
+				DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */,
 				DE4F38E71C117D3200D64EF6 /* LSCommonInfo.h */,
 				DE4F38E81C117D3200D64EF6 /* LSCommonInfo.m */,
 				DE7B5C8A1C112D4100904476 /* LSKeychain.h */,
@@ -388,11 +398,13 @@
 				DE7B5C951C112D4100904476 /* NSNumber+LS.m in Sources */,
 				DE4F38E91C117D3200D64EF6 /* LSCommonInfo.m in Sources */,
 				DE7B5C921C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.m in Sources */,
+				DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */,
 				DE7B5C931C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.m in Sources */,
 				DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */,
 				DE7B5C381C11256A00904476 /* ViewController.m in Sources */,
 				DE7B5C9C1C112D4100904476 /* NSString+URLQueryResolver.m in Sources */,
 				DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */,
+				DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */,
 				DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */,
 				DE7B5C9F1C112D4100904476 /* UIColor+LSHex.m in Sources */,
 				DE7B5CA01C112D4100904476 /* UIImage+LSPS.m in Sources */,
