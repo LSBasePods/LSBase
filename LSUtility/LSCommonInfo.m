@@ -106,11 +106,11 @@ typedef NS_ENUM(NSUInteger, LSNetworkDetailStatus)
         return YES;
     }
     
-    if (![self _yy_fileExistInMainBundle:@"_CodeSignature"]) {
+    if (![self _ls_fileExistInMainBundle:@"_CodeSignature"]) {
         return YES;
     }
     
-    if (![self _yy_fileExistInMainBundle:@"SC_Info"]) {
+    if (![self _ls_fileExistInMainBundle:@"SC_Info"]) {
         return YES;
     }
     
@@ -119,7 +119,7 @@ typedef NS_ENUM(NSUInteger, LSNetworkDetailStatus)
     return NO;
 }
 
-+ (BOOL)_yy_fileExistInMainBundle:(NSString *)name {
++ (BOOL)_ls_fileExistInMainBundle:(NSString *)name {
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     NSString *path = [NSString stringWithFormat:@"%@/%@", bundlePath, name];
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
