@@ -12,6 +12,7 @@
 		DE4F38E01C1174C800D64EF6 /* UIGestureRecognizer+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */; };
 		DE4F38E31C11763B00D64EF6 /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E21C11763B00D64EF6 /* NSObject+KVO.m */; };
 		DE4F38E61C11781600D64EF6 /* NSString+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E51C11781600D64EF6 /* NSString+LS.m */; };
+		DE4F38E91C117D3200D64EF6 /* LSCommonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E81C117D3200D64EF6 /* LSCommonInfo.m */; };
 		DE7B5C321C11256A00904476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C311C11256A00904476 /* main.m */; };
 		DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C341C11256A00904476 /* AppDelegate.m */; };
 		DE7B5C381C11256A00904476 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C371C11256A00904476 /* ViewController.m */; };
@@ -42,8 +43,6 @@
 		DE7B5CA51C112D4100904476 /* UIView+LSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C7D1C112D4100904476 /* UIView+LSAutoLayout.m */; };
 		DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C7F1C112D4100904476 /* UIView+LSFrame.m */; };
 		DE7B5CA71C112D4100904476 /* UIView+LSRemoveAllSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C811C112D4100904476 /* UIView+LSRemoveAllSubview.m */; };
-		DE7B5CA81C112D4100904476 /* LSAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C841C112D4100904476 /* LSAppInfo.m */; };
-		DE7B5CA91C112D4100904476 /* LSDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C871C112D4100904476 /* LSDeviceInfo.m */; };
 		DE7B5CAB1C112D4100904476 /* LSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C8B1C112D4100904476 /* LSKeychain.m */; };
 		DE7B5CAC1C112D4100904476 /* LSUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C8D1C112D4100904476 /* LSUDIDGenerator.m */; };
 		DE7B5CAD1C112D4100904476 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C8F1C112D4100904476 /* Reachability.m */; };
@@ -63,6 +62,8 @@
 		DE4F38E21C11763B00D64EF6 /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
 		DE4F38E41C11781600D64EF6 /* NSString+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LS.h"; sourceTree = "<group>"; };
 		DE4F38E51C11781600D64EF6 /* NSString+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LS.m"; sourceTree = "<group>"; };
+		DE4F38E71C117D3200D64EF6 /* LSCommonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCommonInfo.h; sourceTree = "<group>"; };
+		DE4F38E81C117D3200D64EF6 /* LSCommonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCommonInfo.m; sourceTree = "<group>"; };
 		DE7B5C2D1C11256A00904476 /* LSBaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSBaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7B5C311C11256A00904476 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE7B5C331C11256A00904476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,11 +124,6 @@
 		DE7B5C7F1C112D4100904476 /* UIView+LSFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LSFrame.m"; sourceTree = "<group>"; };
 		DE7B5C801C112D4100904476 /* UIView+LSRemoveAllSubview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LSRemoveAllSubview.h"; sourceTree = "<group>"; };
 		DE7B5C811C112D4100904476 /* UIView+LSRemoveAllSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LSRemoveAllSubview.m"; sourceTree = "<group>"; };
-		DE7B5C831C112D4100904476 /* LSAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSAppInfo.h; sourceTree = "<group>"; };
-		DE7B5C841C112D4100904476 /* LSAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSAppInfo.m; sourceTree = "<group>"; };
-		DE7B5C851C112D4100904476 /* LSCommonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCommonInfo.h; sourceTree = "<group>"; };
-		DE7B5C861C112D4100904476 /* LSDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSDeviceInfo.h; sourceTree = "<group>"; };
-		DE7B5C871C112D4100904476 /* LSDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSDeviceInfo.m; sourceTree = "<group>"; };
 		DE7B5C8A1C112D4100904476 /* LSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKeychain.h; sourceTree = "<group>"; };
 		DE7B5C8B1C112D4100904476 /* LSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKeychain.m; sourceTree = "<group>"; };
 		DE7B5C8C1C112D4100904476 /* LSUDIDGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSUDIDGenerator.h; sourceTree = "<group>"; };
@@ -292,11 +288,8 @@
 		DE7B5C821C112D4100904476 /* LSUtility */ = {
 			isa = PBXGroup;
 			children = (
-				DE7B5C831C112D4100904476 /* LSAppInfo.h */,
-				DE7B5C841C112D4100904476 /* LSAppInfo.m */,
-				DE7B5C851C112D4100904476 /* LSCommonInfo.h */,
-				DE7B5C861C112D4100904476 /* LSDeviceInfo.h */,
-				DE7B5C871C112D4100904476 /* LSDeviceInfo.m */,
+				DE4F38E71C117D3200D64EF6 /* LSCommonInfo.h */,
+				DE4F38E81C117D3200D64EF6 /* LSCommonInfo.m */,
 				DE7B5C8A1C112D4100904476 /* LSKeychain.h */,
 				DE7B5C8B1C112D4100904476 /* LSKeychain.m */,
 				DE7B5C8C1C112D4100904476 /* LSUDIDGenerator.h */,
@@ -392,9 +385,8 @@
 			files = (
 				DE7B5C9E1C112D4100904476 /* LSModel.m in Sources */,
 				DE7B5CA41C112D4100904476 /* UIView+LS.m in Sources */,
-				DE7B5CA81C112D4100904476 /* LSAppInfo.m in Sources */,
 				DE7B5C951C112D4100904476 /* NSNumber+LS.m in Sources */,
-				DE7B5CA91C112D4100904476 /* LSDeviceInfo.m in Sources */,
+				DE4F38E91C117D3200D64EF6 /* LSCommonInfo.m in Sources */,
 				DE7B5C921C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.m in Sources */,
 				DE7B5C931C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.m in Sources */,
 				DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */,
