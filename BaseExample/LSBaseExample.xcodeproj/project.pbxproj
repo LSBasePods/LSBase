@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */; };
+		DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38DC1C1173A500D64EF6 /* UIBarButtonItem+LS.m */; };
+		DE4F38E01C1174C800D64EF6 /* UIGestureRecognizer+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */; };
+		DE4F38E31C11763B00D64EF6 /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E21C11763B00D64EF6 /* NSObject+KVO.m */; };
+		DE4F38E61C11781600D64EF6 /* NSString+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E51C11781600D64EF6 /* NSString+LS.m */; };
 		DE7B5C321C11256A00904476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C311C11256A00904476 /* main.m */; };
 		DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C341C11256A00904476 /* AppDelegate.m */; };
 		DE7B5C381C11256A00904476 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C371C11256A00904476 /* ViewController.m */; };
@@ -48,6 +53,16 @@
 
 /* Begin PBXFileReference section */
 		DE4F38D71C1139F300D64EF6 /* LSBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LSBase.h; path = ../LSBase.h; sourceTree = "<group>"; };
+		DE4F38D81C1171D800D64EF6 /* UIControl+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+LS.h"; sourceTree = "<group>"; };
+		DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+LS.m"; sourceTree = "<group>"; };
+		DE4F38DB1C1173A500D64EF6 /* UIBarButtonItem+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LS.h"; sourceTree = "<group>"; };
+		DE4F38DC1C1173A500D64EF6 /* UIBarButtonItem+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LS.m"; sourceTree = "<group>"; };
+		DE4F38DE1C1174C800D64EF6 /* UIGestureRecognizer+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+LS.h"; sourceTree = "<group>"; };
+		DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+LS.m"; sourceTree = "<group>"; };
+		DE4F38E11C11763B00D64EF6 /* NSObject+KVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
+		DE4F38E21C11763B00D64EF6 /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
+		DE4F38E41C11781600D64EF6 /* NSString+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LS.h"; sourceTree = "<group>"; };
+		DE4F38E51C11781600D64EF6 /* NSString+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LS.m"; sourceTree = "<group>"; };
 		DE7B5C2D1C11256A00904476 /* LSBaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSBaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7B5C311C11256A00904476 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE7B5C331C11256A00904476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -203,12 +218,16 @@
 				DE7B5C591C112D4100904476 /* NSNumber+LS.m */,
 				DE7B5CB01C112F8300904476 /* NSObject+RunTime.h */,
 				DE7B5CB11C112F8300904476 /* NSObject+RunTime.m */,
+				DE4F38E11C11763B00D64EF6 /* NSObject+KVO.h */,
+				DE4F38E21C11763B00D64EF6 /* NSObject+KVO.m */,
 				DE7B5C5A1C112D4100904476 /* NSObject+LSDictionaryRepresentation.h */,
 				DE7B5C5B1C112D4100904476 /* NSObject+LSDictionaryRepresentation.m */,
 				DE7B5C5C1C112D4100904476 /* NSObject+LSValueCheck.h */,
 				DE7B5C5D1C112D4100904476 /* NSObject+LSValueCheck.m */,
 				DE7B5C5E1C112D4100904476 /* NSObject+NSJSONSerialization.h */,
 				DE7B5C5F1C112D4100904476 /* NSObject+NSJSONSerialization.m */,
+				DE4F38E41C11781600D64EF6 /* NSString+LS.h */,
+				DE4F38E51C11781600D64EF6 /* NSString+LS.m */,
 				DE7B5C601C112D4100904476 /* NSString+MD5.h */,
 				DE7B5C611C112D4100904476 /* NSString+MD5.m */,
 				DE7B5C621C112D4100904476 /* NSString+Sha1.h */,
@@ -259,6 +278,12 @@
 				DE7B5C7F1C112D4100904476 /* UIView+LSFrame.m */,
 				DE7B5C801C112D4100904476 /* UIView+LSRemoveAllSubview.h */,
 				DE7B5C811C112D4100904476 /* UIView+LSRemoveAllSubview.m */,
+				DE4F38D81C1171D800D64EF6 /* UIControl+LS.h */,
+				DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */,
+				DE4F38DB1C1173A500D64EF6 /* UIBarButtonItem+LS.h */,
+				DE4F38DC1C1173A500D64EF6 /* UIBarButtonItem+LS.m */,
+				DE4F38DE1C1174C800D64EF6 /* UIGestureRecognizer+LS.h */,
+				DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */,
 			);
 			name = LSUIKit;
 			path = ../LSUIKit;
@@ -375,6 +400,8 @@
 				DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */,
 				DE7B5C381C11256A00904476 /* ViewController.m in Sources */,
 				DE7B5C9C1C112D4100904476 /* NSString+URLQueryResolver.m in Sources */,
+				DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */,
+				DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */,
 				DE7B5C9F1C112D4100904476 /* UIColor+LSHex.m in Sources */,
 				DE7B5CA01C112D4100904476 /* UIImage+LSPS.m in Sources */,
 				DE7B5C9D1C112D4100904476 /* NSString+ValidateCheck.m in Sources */,
@@ -384,11 +411,14 @@
 				DE7B5C9B1C112D4100904476 /* NSString+TreatAsNSNumber.m in Sources */,
 				DE7B5CA51C112D4100904476 /* UIView+LSAutoLayout.m in Sources */,
 				DE7B5C961C112D4100904476 /* NSObject+LSDictionaryRepresentation.m in Sources */,
+				DE4F38E01C1174C800D64EF6 /* UIGestureRecognizer+LS.m in Sources */,
 				DE7B5C971C112D4100904476 /* NSObject+LSValueCheck.m in Sources */,
 				DE7B5C991C112D4100904476 /* NSString+MD5.m in Sources */,
 				DE7B5CA11C112D4100904476 /* UINavigationBar+LS.m in Sources */,
 				DE7B5C941C112D4100904476 /* NSNull+LSNonCrash.m in Sources */,
 				DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */,
+				DE4F38E31C11763B00D64EF6 /* NSObject+KVO.m in Sources */,
+				DE4F38E61C11781600D64EF6 /* NSString+LS.m in Sources */,
 				DE7B5CAC1C112D4100904476 /* LSUDIDGenerator.m in Sources */,
 				DE7B5CAD1C112D4100904476 /* Reachability.m in Sources */,
 				DE7B5CB51C1134AD00904476 /* LSFObject.m in Sources */,

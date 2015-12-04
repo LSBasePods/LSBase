@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LSFObject.h"
 
 @interface NSObject (LSDictionaryRepresentation)
 - (NSMutableDictionary *)dictionaryRepresentation;

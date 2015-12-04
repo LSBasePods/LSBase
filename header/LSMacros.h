@@ -135,8 +135,6 @@ static inline void dispatch_sync_on_main_queue(void (^block)()) {
     }
 }
 
-#define LS_TEXTSIZE(text, font) [text length] > 0 ? [text sizeWithAttributes:@{NSFontAttributeName:font}] : CGSizeZero;
-
 //-------------------打印日志-------------------------
 
 //重写NSLog,Debug模式下打印日志和当前行数

@@ -15,3 +15,6 @@
 #import "UIView+LSAutoLayout.h"
 #import "UIView+LSFrame.h"
 #import "UIView+LSRemoveAllSubview.h"
+#import "UIBarButtonItem+LS.h"
+#import "UIControl+LS.h"
+#import "UIGestureRecognizer+LS.h"

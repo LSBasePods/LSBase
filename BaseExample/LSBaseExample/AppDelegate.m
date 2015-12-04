@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LSBase.h"
+
 
 @interface AppDelegate ()
 

@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+LSDictionaryRepresentation.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (LSDictionaryRepresentation)
 #pragma clang diagnostic push
