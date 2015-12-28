@@ -17,7 +17,25 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => git_source }
 
-  s.source_files = '*/*.{h,m}','*.h'
+  s.source_files = '*.h'
 
+  s.subspec 'header' do |ss|
+    ss.source_files = 'header/*.{h,m}'
+  end
 
+  s.subspec 'LSFoundation' do |ss|
+    ss.source_files = 'LSFoundation/*.{h,m}'
+  end
+
+  s.subspec 'LSUIKit' do |ss|
+    ss.source_files = 'LSUIKit/*.{h,m}'
+  end
+
+  s.subspec 'LSModel' do |ss|
+    ss.source_files = 'LSModel/*.{h,m}'
+  end
+
+  s.subspec 'LSUtility' do |ss|
+    ss.source_files = 'LSUtility/*.{h,m}'
+  end
 end
