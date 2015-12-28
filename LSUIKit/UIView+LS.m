@@ -25,6 +25,11 @@
     return NSStringFromClass([self class]);
 }
 
+- (void)configViewFromData:(id)data
+{
+    
+}
+
 - (void)setIndexPath:(NSIndexPath *)indexPath
 {
     objc_setAssociatedObject(self, "indexPath", indexPath, OBJC_ASSOCIATION_RETAIN);

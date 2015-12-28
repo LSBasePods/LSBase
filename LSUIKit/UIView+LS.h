@@ -25,6 +25,8 @@
 
 + (NSString *)className;
 
+- (void)configViewFromData:(id)data;
+
 @end
 
 
