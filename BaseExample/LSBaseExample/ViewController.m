@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Book.h"
+#import "NSObject+LSModel.h"
 
 @interface ViewController ()
 
@@ -17,6 +19,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    Book *book1 = [Book modelWithJSON:@"{\"name\": \"Harry Potter\",\"read\": 1, \"pages\": 256, \"user\": {\"name\": \"J.K.Rowling\", \"birthday\": \"1965-07-31\" }}" discrepantKeys:@{@"hasRead":@"read"}];
+    
+    NSLog(@"book1's user name : %@", book1.user.name);
+    
+    Book *book = [Book new];
+    book.name = @"nihao";
+    book.pages = @110;
+    book.user = [User new];
+    book.user.name = @"user";
+    book.user.birthday = @"1992";
+    Book *book2 = [Book modelWithOtherObject:book];
+    
+    NSLog(@"book2's user name : %@", book2.user.name);
+
 }
 
 - (void)didReceiveMemoryWarning {

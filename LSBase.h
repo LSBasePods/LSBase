@@ -10,3 +10,5 @@
 #import "LSFoundation.h"
 #import "LSUIKit.h"
 #import "LSUtility.h"
+#import "NSObject+LSModel.h"
+
