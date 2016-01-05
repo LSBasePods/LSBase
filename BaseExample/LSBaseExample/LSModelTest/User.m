@@ -7,7 +7,10 @@
 //
 
 #import "User.h"
+#import "NSObject+LSModel.h"
 
 @implementation User
+
+MODEL_CODING_IMPLEMENTATION
 
 @end

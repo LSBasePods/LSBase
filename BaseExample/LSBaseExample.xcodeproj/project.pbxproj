@@ -148,6 +148,7 @@
 		DEEF8D361C3BA0F500A499F9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		DEEF8D381C3BA11700A499F9 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		DEEF8D391C3BA11700A499F9 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		DEEF8D3E1C3BD22500A499F9 /* LSModelMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSModelMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +258,7 @@
 				DEEF8D2F1C3B999A00A499F9 /* NSObject+LSModel.m */,
 				DEEF8D301C3B999A00A499F9 /* YYClassInfo.h */,
 				DEEF8D311C3B999A00A499F9 /* YYClassInfo.m */,
+				DEEF8D3E1C3BD22500A499F9 /* LSModelMacro.h */,
 			);
 			name = LSModel;
 			path = ../LSModel;

@@ -7,7 +7,10 @@
 //
 
 #import "Book.h"
+#import "NSObject+LSModel.h"
 
 @implementation Book
+
+MODEL_CODING_IMPLEMENTATION
 
 @end

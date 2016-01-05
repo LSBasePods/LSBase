@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LSModelMacro.h"
 
 @protocol LSModel <NSObject>
 
@@ -42,26 +43,9 @@
 - (BOOL)modelSetWithOtherObject:(id)object;
 - (BOOL)modelSetWithOtherObject:(id)object discrepantKeys:(NSDictionary *)discrepantKeys;
 
-#pragma mark Convert Model to Other Objects
-
-- (id)modelToJSONObject;
-
-- (NSData *)modelToJSONData;
-
-- (NSString *)modelToJSONString;
-
-#pragma mark
-
-- (id)modelCopy;
-
+# pragma mark Encode
 - (void)modelEncodeWithCoder:(NSCoder *)aCoder;
-
 - (id)modelInitWithCoder:(NSCoder *)aDecoder;
-
-- (NSUInteger)modelHash;
-
-- (BOOL)modelIsEqual:(id)model;
-
 
 @end
 

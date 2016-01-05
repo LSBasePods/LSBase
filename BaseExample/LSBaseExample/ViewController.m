@@ -33,6 +33,12 @@
     Book *book2 = [Book modelWithOtherObject:book];
     
     NSLog(@"book2's user name : %@", book2.user.name);
+    
+    
+    NSData *book1Data = [NSKeyedArchiver archivedDataWithRootObject:book1];
+    Book *book3 = [NSKeyedUnarchiver unarchiveObjectWithData:book1Data];
+    
+    NSLog(@"book3's user name : %@", book3.user.name);
 
 }
 

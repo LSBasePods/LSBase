@@ -195,46 +195,40 @@
         }
     }
     
-    return YES;}
-
-- (id)modelToJSONObject
-{
-    return 0;
-}
-
-- (NSData *)modelToJSONData
-{
-    return 0;
-}
-
-- (NSString *)modelToJSONString
-{
-    return 0;
-}
-
-- (id)modelCopy
-{
-    return 0;
+    return YES;
 }
 
 - (void)modelEncodeWithCoder:(NSCoder *)aCoder
 {
+    if (!aCoder) return;
+    if (self == (id)kCFNull) {
+        [((id<NSCoding>)self)encodeWithCoder:aCoder];
+        return;
+    }
+    
+    NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
+    for (NSString *propertyName in writablePropertyKeyPairs) {
+        id propertyValue = [self valueForKey:propertyName];
+        if (propertyValue) {
+            [aCoder encodeObject:propertyValue forKey:[self _ls_codingKeyWithPropertyName:propertyName]];
+        }
+    };
     return ;
 }
 
-- (id)modelInitWithCoder:(NSCoder *)aDecoder
+- (instancetype)modelInitWithCoder:(NSCoder *)aDecoder
 {
-    return 0;
-}
-
-- (NSUInteger)modelHash
-{
-    return 0;
-}
-
-- (BOOL)modelIsEqual:(id)model
-{
-    return 0;
+    if (!aDecoder) return self;
+    if (self == (id)kCFNull) {
+        return self;
+    }
+    
+    NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
+    for (NSString *propertyName in writablePropertyKeyPairs) {
+        id propertyValue = [aDecoder decodeObjectForKey:[self _ls_codingKeyWithPropertyName:propertyName]];
+        [self setValue:propertyValue forKey:propertyName];
+    };
+    return self;
 }
 
 #pragma mark - Private Methods
@@ -259,7 +253,7 @@
 
 + (NSMutableDictionary *)_ls_writablePropertyKeys {
     NSMutableDictionary *keyPairs = [NSMutableDictionary dictionary];
-    [self enumeratePropertiesUsingBlock:^(objc_property_t property, BOOL *stop) {
+    [self _ls_enumeratePropertiesUsingBlock:^(objc_property_t property, BOOL *stop) {
         const char *propertyAttributes = property_getAttributes(property);
         NSArray *attributes = [[NSString stringWithUTF8String:propertyAttributes] componentsSeparatedByString:@","];
         if (![attributes containsObject:@"R"]) {
@@ -291,7 +285,7 @@
     return keyPairs;
 }
 
-+ (void)enumeratePropertiesUsingBlock:(void (^)(objc_property_t property, BOOL *stop))block
++ (void)_ls_enumeratePropertiesUsingBlock:(void (^)(objc_property_t property, BOOL *stop))block
 {
     Class cls = self;
     BOOL stop = NO;
@@ -311,6 +305,12 @@
         free(properties);
     }
 }
+
+- (NSString *)_ls_codingKeyWithPropertyName:(NSString *)name
+{
+    return [NSString stringWithFormat:@"%@%@", NSStringFromClass([self class]), name];
+}
+
 @end
 
 @implementation NSArray (LSModel)
