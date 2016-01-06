@@ -11,6 +11,5 @@
 
 @implementation User
 
-MODEL_CODING_IMPLEMENTATION
 
 @end

@@ -131,16 +131,4 @@ _##__NAME__ = __NAME__;   \
 }   \
 }   \
 }
-
-#define MODEL_CODING_IMPLEMENTATION \
-- (void)encodeWithCoder:(NSCoder *)aCoder \
-{ \
-    return [self modelEncodeWithCoder:aCoder]; \
-} \
- \
-- (instancetype)initWithCoder:(NSCoder *)aDecoder \
-{ \
-    return [self modelInitWithCoder:aDecoder]; \
-} 
-
 #endif /* LSModelMacro_h */

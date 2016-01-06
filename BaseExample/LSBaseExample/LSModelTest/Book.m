@@ -11,6 +11,5 @@
 
 @implementation Book
 
-MODEL_CODING_IMPLEMENTATION
 
 @end

@@ -198,6 +198,34 @@
     return YES;
 }
 
+# pragma mark  - NSCoding 
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
++ (BOOL)resolveInstanceMethod:(SEL)sel{
+        
+    if (self == [NSObject class]) {
+        return NO;
+    }
+    
+    NSString *methodName = NSStringFromSelector(sel);
+    
+    if ([methodName isEqualToString:@"encodeWithCoder:"]) {
+        NSLog(@"Class:%@ add Selector 「encodeWithCoder:」 with IMP 「modelEncodeWithCoder:」 ",[self class]);
+        Method modelEncodeMethod = class_getInstanceMethod(self, @selector(modelEncodeWithCoder:));
+        class_addMethod(self, @selector(encodeWithCoder:), method_getImplementation(modelEncodeMethod), method_getTypeEncoding(modelEncodeMethod));
+        return YES;
+    } else if ([methodName isEqualToString:@"initWithCoder:"]) {
+        NSLog(@"Class:%@ add Selector「initWithCoder:」 with IMP 「modelInitWithCoder:」",[self class]);
+        Method modelDecodeMethod = class_getInstanceMethod(self, @selector(modelInitWithCoder:));
+        class_addMethod(self, @selector(initWithCoder:), method_getImplementation(modelDecodeMethod), method_getTypeEncoding(modelDecodeMethod));
+        return YES;
+    }
+    
+    return [[[self class] superclass] resolveInstanceMethod:sel];
+}
+#pragma clang diagnostic pop
+
 - (void)modelEncodeWithCoder:(NSCoder *)aCoder
 {
     if (!aCoder) return;
