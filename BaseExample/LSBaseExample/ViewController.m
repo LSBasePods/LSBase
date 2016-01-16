@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Book.h"
 #import "NSObject+LSModel.h"
+#import "UIView+LS.h"
 
 @interface ViewController ()
 
@@ -39,6 +40,9 @@
     Book *book3 = [NSKeyedUnarchiver unarchiveObjectWithData:book1Data];
     
     NSLog(@"book3's user name : %@", book3.user.name);
+    
+    UIView *view = [UIView new];
+    [view configViewFromData:nil];
 
 }
 
