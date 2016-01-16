@@ -27,7 +27,10 @@
 
 - (void)configViewFromData:(id)data
 {
-    
+    NSString *className = NSStringFromClass([self class]);
+    NSString *classViewMapping = [className stringByAppendingString:@"Mapping"];
+    Class mappingClass = NSClassFromString(classViewMapping);
+    [mappingClass view:self mappingModel:data];
 }
 
 - (void)setIndexPath:(NSIndexPath *)indexPath

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14FDF1DB1C4A1916001A81F9 /* UIViewMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FDF1DA1C4A1916001A81F9 /* UIViewMapping.m */; };
 		DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */; };
 		DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38DC1C1173A500D64EF6 /* UIBarButtonItem+LS.m */; };
 		DE4F38E01C1174C800D64EF6 /* UIGestureRecognizer+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */; };
@@ -55,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14FDF1D91C4A1916001A81F9 /* UIViewMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewMapping.h; sourceTree = "<group>"; };
+		14FDF1DA1C4A1916001A81F9 /* UIViewMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewMapping.m; sourceTree = "<group>"; };
 		DE4F38D71C1139F300D64EF6 /* LSBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LSBase.h; path = ../LSBase.h; sourceTree = "<group>"; };
 		DE4F38D81C1171D800D64EF6 /* UIControl+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+LS.h"; sourceTree = "<group>"; };
 		DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+LS.m"; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				DE7B5C3E1C11256A00904476 /* LaunchScreen.storyboard */,
 				DE7B5C411C11256A00904476 /* Info.plist */,
 				DE7B5C301C11256A00904476 /* Supporting Files */,
+				14FDF1D91C4A1916001A81F9 /* UIViewMapping.h */,
+				14FDF1DA1C4A1916001A81F9 /* UIViewMapping.m */,
 			);
 			path = LSBaseExample;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				DE7B5C991C112D4100904476 /* NSString+MD5.m in Sources */,
 				DE7B5CA11C112D4100904476 /* UINavigationBar+LS.m in Sources */,
 				DE7B5C941C112D4100904476 /* NSNull+LSNonCrash.m in Sources */,
+				14FDF1DB1C4A1916001A81F9 /* UIViewMapping.m in Sources */,
 				DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */,
 				DE4F38E31C11763B00D64EF6 /* NSObject+KVO.m in Sources */,
 				DE4F38E61C11781600D64EF6 /* NSString+LS.m in Sources */,
