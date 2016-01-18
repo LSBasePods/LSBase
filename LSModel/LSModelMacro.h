@@ -78,15 +78,15 @@ CREATE_PROPERTY(__NAME__, __TYPE__ *, strong)
  *  实现 数组属性 的Setter方法，以实现LSModel自动转化
  *  请在 implementation 内使用，不需要加括号
  *
- *  @param __CLASS__           数组中变量的类型
+ *  @param __TYPE__            数组中变量的类型
  *  @param __NAME__            属性名
  *  @param __SETTER_FUN_NAME__ 属性对应的 Setter 方法
  *
- *  示例：ARRAY_PROPERTY_SETTER([User class], userList, setUserList)
+ *  示例：ARRAY_PROPERTY_SETTER(User, userList, setUserList)
  *
  *  @return
  */
-#define ARRAY_PROPERTY_SETTER(__CLASS__, __NAME__, __SETTER_FUN_NAME__)  \
+#define ARRAY_PROPERTY_SETTER(__TYPE__, __NAME__, __SETTER_FUN_NAME__)  \
 - (void)__SETTER_FUN_NAME__:(NSArray *)__NAME__   \
 {   \
     if (![__NAME__ isKindOfClass:[NSArray class]]) {   \
@@ -96,11 +96,11 @@ CREATE_PROPERTY(__NAME__, __TYPE__ *, strong)
         return; \
     }   \
     BOOL realAssign = NO;   \
-    if (__NAME__.count > 0 && [__NAME__[0] isKindOfClass:__CLASS__]) {   \
+    if (__NAME__.count > 0 && [__NAME__[0] isKindOfClass:[__TYPE__ class]]) {   \
         realAssign = YES;   \
     }   \
     if (!realAssign) {   \
-        _##__NAME__ = [NSArray modelArrayWithClass:__CLASS__ dataSource:__NAME__];  \
+        _##__NAME__ = [NSArray modelArrayWithClass:[__TYPE__ class] dataSource:__NAME__];  \
     } else {   \
         if (_##__NAME__ != __NAME__){   \
             _##__NAME__ = __NAME__;   \

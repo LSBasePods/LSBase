@@ -16,7 +16,7 @@
 
 @property (nonatomic, assign) BOOL hasRead;
 
-CREATE_PROPERTY(user, User *, strong);
+CREATE_OBJECT_PROPERTY(User, user)
 CREATE_ARRAY_PROPERTY(userList);
 
 @end
