@@ -10,6 +10,7 @@
 #import "Book.h"
 #import "NSObject+LSModel.h"
 #import "UIView+LS.h"
+#import "UIButton+LSImageAndTitleStyle.h"
 
 @interface ViewController ()
 
@@ -21,7 +22,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    //**** Model from Json
+    self.view.backgroundColor = [UIColor redColor];
+
     Book *book1 = [Book modelWithJSON:@"{\"name\": \"Harry Potter\",\"read\": 1, \"pages\": 256, \"user\": {\"name\": \"J.K.Rowling\", \"birthday\": \"1965-07-31\" }}" discrepantKeys:@{@"hasRead":@"read"}];
     NSLog(@"book1's user name : %@", book1.user.name);
     
@@ -48,6 +50,14 @@
     //**** View Mapping
     UIView *view = [UIView new];
     [view configViewFromData:nil];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = [UIColor greenColor];
+    button.frame = CGRectMake(110, 110, 100, 50);
+    button.buttonStyle = LKButtonStyleTopImageBottomText;
+    [button setTitle:@"按按钮" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"position.png"] forState:UIControlStateNormal];
+    [self.view addSubview:button];
 
 }
 

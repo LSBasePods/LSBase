@@ -9,7 +9,7 @@
 #import "UIColor+LSHex.h"
 #import "UIImage+LSPS.h"
 #import "UINavigationBar+LS.h"
-#import "UINavigationController+LKSafe.h"
+#import "UINavigationController+LSSafe.h"
 #import "UIView+Genie.h"
 #import "UIView+LS.h"
 #import "UIView+LSAutoLayout.h"
