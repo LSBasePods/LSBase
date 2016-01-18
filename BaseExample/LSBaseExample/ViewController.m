@@ -8,9 +8,7 @@
 
 #import "ViewController.h"
 #import "Book.h"
-#import "NSObject+LSModel.h"
-#import "UIView+LS.h"
-#import "UIButton+LSImageAndTitleStyle.h"
+#import "LSBase.h"
 
 @interface ViewController ()
 
