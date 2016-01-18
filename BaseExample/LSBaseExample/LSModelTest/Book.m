@@ -11,5 +11,6 @@
 
 @implementation Book
 
+ARRAY_PROPERTY_SETTER([User class], userList, setUserList)
 
 @end

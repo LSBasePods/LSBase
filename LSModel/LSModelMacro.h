@@ -75,60 +75,36 @@ CREATE_PROPERTY(__NAME__, NSArray *, copy)
 CREATE_PROPERTY(__NAME__, __TYPE__ *, strong)
 
 /**
- *  针对model中得对象类型的变量，重写setter方法的宏定义
- *  如果有什么特殊处理请自行重写setter
+ *  实现 数组属性 的Setter方法，以实现LSModel自动转化
+ *  请在 implementation 内使用，不需要加括号
  *
- *  @param __TYPE__     变量的类型
- *  @param __NAME__     变量名
- *  @param __FUN_NAME__ 变量对应的方法名
- *  示例：SETPROPERTY(FBBlock, block , Block)
+ *  @param __CLASS__           数组中变量的类型
+ *  @param __NAME__            属性名
+ *  @param __SETTER_FUN_NAME__ 属性对应的 Setter 方法
  *
- *  @return 变量对应的setter方法
+ *  示例：ARRAY_PROPERTY_SETTER([User class], userList, setUserList)
+ *
+ *  @return
  */
-#define SETPROPERTY(__TYPE__, __NAME__, __FUN_NAME__)   \
-- (void)set##__FUN_NAME__:(id)__NAME__ \
-{ \
-if ([__NAME__ isKindOfClass:[NSDictionary class]]) {   \
-[_##__NAME__ loadPropertiesWithData:__NAME__];  \
-} else if([__NAME__ isKindOfClass:[__TYPE__ class]]){   \
-if (_##__NAME__ != __NAME__){   \
-_##__NAME__ = __NAME__; \
-}   \
-} else if (!__NAME__){   \
-_##__NAME__ = __NAME__; \
-} \
-}
-
-/**
- *  针对model中得数组类型的变量(数组中得对象类型为自定义对象类型)，重写setter方法的宏定义
- *  如果有什么特殊处理请自行重写setter
- *
- *  @param __TYPE__     数组中变量的类型
- *  @param __NAME__     变量名
- *  @param __FUN_NAME__ 变量对应的方法名
- *  示例：SETARRAYPROPERTY(FBCommunity, communities, Communities)
- *
- *  @return 变量对应的setter方法
- */
-#define SETARRAYPROPERTY(__TYPE__, __NAME__, __FUN_NAME__)  \
-- (void)set##__FUN_NAME__:(NSArray *)__NAME__   \
+#define ARRAY_PROPERTY_SETTER(__CLASS__, __NAME__, __SETTER_FUN_NAME__)  \
+- (void)__SETTER_FUN_NAME__:(NSArray *)__NAME__   \
 {   \
-if (![__NAME__ isKindOfClass:[NSArray class]]) {   \
-if (!__NAME__){   \
-_##__NAME__ = __NAME__; \
-} \
-return; \
-}   \
-BOOL realAssign = NO;   \
-if (__NAME__.count > 0 && [__NAME__[0] isKindOfClass:[__TYPE__ class]]) {   \
-realAssign = YES;   \
-}   \
-if (!realAssign) {   \
-_##__NAME__ = [self loadArrayPropertyWithDataSource:__NAME__ requireModel:@#__TYPE__];   \
-} else {   \
-if (_##__NAME__ != __NAME__){   \
-_##__NAME__ = __NAME__;   \
-}   \
-}   \
+    if (![__NAME__ isKindOfClass:[NSArray class]]) {   \
+        if (!__NAME__){   \
+            _##__NAME__ = __NAME__; \
+        } \
+        return; \
+    }   \
+    BOOL realAssign = NO;   \
+    if (__NAME__.count > 0 && [__NAME__[0] isKindOfClass:__CLASS__]) {   \
+        realAssign = YES;   \
+    }   \
+    if (!realAssign) {   \
+        _##__NAME__ = [NSArray modelArrayWithClass:__CLASS__ dataSource:__NAME__];  \
+    } else {   \
+        if (_##__NAME__ != __NAME__){   \
+            _##__NAME__ = __NAME__;   \
+        }   \
+    }   \
 }
 #endif /* LSModelMacro_h */

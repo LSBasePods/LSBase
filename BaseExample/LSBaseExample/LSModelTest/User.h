@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+LSModel.h"
 
 @interface User : NSObject
 
