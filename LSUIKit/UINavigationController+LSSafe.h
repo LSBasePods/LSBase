@@ -1,5 +1,5 @@
 //
-//  UINavigationController+LKSafe.h
+//  UINavigationController+LSSafe.h
 //  LSFoundation
 //
 //  Created by 白开水_孙 on 15/8/31.
@@ -11,6 +11,6 @@
 /**
  *  防止UINavigationController多次快速点击做多次跳转操作
  */
-@interface UINavigationController (LKSafe)<UINavigationControllerDelegate>
+@interface UINavigationController (LSSafe)<UINavigationControllerDelegate>
 @property (nonatomic, assign) BOOL allowPush;
 @end

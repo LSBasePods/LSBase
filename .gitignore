@@ -9,9 +9,9 @@ xcuserdata
 *.mode1v3
 *.mode2v3
 *.svn.*
-taocz.xcodeproj/xcshareddata/xcschemes
-taocz.xcodeproj/project.xcworkspace/xcshareddata/
-taocz.xcworkspace/xcuserdata/
+*.xcodeproj/xcshareddata/xcschemes
+*.xcodeproj/project.xcworkspace/xcshareddata/
+*.xcworkspace/xcuserdata/
 xcshareddata
 Podfile.lock
 Pods
