@@ -18,3 +18,4 @@
 #import "UIBarButtonItem+LS.h"
 #import "UIControl+LS.h"
 #import "UIGestureRecognizer+LS.h"
+#import "UIButton+LSImageAndTitleStyle.h"
