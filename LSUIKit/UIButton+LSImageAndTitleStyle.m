@@ -40,8 +40,8 @@
         }
         case LKButtonStyleTopImageBottomText:
         {
-            self.imageView.top = self.imageEdgeInsets.top + 2.0;
-            self.titleLabel.top = self.titleEdgeInsets.top + self.imageView.bottom + self.imageEdgeInsets.bottom;
+            self.imageView.top = self.imageEdgeInsets.top;
+            self.titleLabel.bottom = self.height - self.titleEdgeInsets.bottom;
             self.imageView.centerX = self.width / 2;
             self.titleLabel.centerX = self.width / 2;
             break;
@@ -50,7 +50,7 @@
         default:
             break;
     }
-
+    
 }
 
 - (void)setButtonStyle:(LSButtonStyle)buttonStyle
