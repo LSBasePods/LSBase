@@ -54,12 +54,12 @@
     return objc_getAssociatedObject(self, "indexPath");
 }
 
-- (void)setLsUserInfo:(NSDictionary *)lsUserInfo
+- (void)setLsUserInfo:(id)lsUserInfo
 {
     objc_setAssociatedObject(self, "lsUserInfo", lsUserInfo, OBJC_ASSOCIATION_RETAIN);
 }
 
-- (NSDictionary *)lsUserInfo
+- (id)lsUserInfo
 {
     return objc_getAssociatedObject(self, "lsUserInfo");
 }

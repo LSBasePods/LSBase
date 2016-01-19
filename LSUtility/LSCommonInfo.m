@@ -489,7 +489,7 @@ typedef NS_ENUM(NSUInteger, LSNetworkDetailStatus)
 }
 
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-- (BOOL)canMakePhoneCalls {
++ (BOOL)canMakePhoneCalls {
     __block BOOL can;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

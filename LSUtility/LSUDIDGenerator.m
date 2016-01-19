@@ -10,17 +10,16 @@
 #import "LSKeychain.h"
 #import <UIKit/UIKit.h>
 
-#warning TODO
-static NSString *serviceName = @"BasePodGroupsService";
-static NSString *udidName = @"BasePodGroupsUDID";
-static NSString *pasteboardType = @"BasePodGroupsContent";
-static NSString *keychainGroup = @"com.xxx.xxx";
+static NSString *serviceName = @"myAPPGroupsService";
+static NSString *udidName = @"myAPPGroupsUDID";
+static NSString *pasteboardType = @"myAPPGroupsContent";
 
 @interface LSUDIDGenerator ()
 
 @property (nonatomic, strong) LSKeychain *myKeyChain;
 @property (nonatomic, copy) NSString *udid;
 @property (nonatomic, copy) NSString *appBundleName;
+@property (nonatomic, strong) NSString *keychainGroup;
 
 @end
 
@@ -78,9 +77,23 @@ static NSString *keychainGroup = @"com.xxx.xxx";
 - (LSKeychain *)myKeyChain
 {
     if (!_myKeyChain) {
-        _myKeyChain = [[LSKeychain alloc] initWithService:serviceName withGroup:keychainGroup];
+        _myKeyChain = [[LSKeychain alloc] initWithService:serviceName withGroup:self.keychainGroup];
     }
     return _myKeyChain;
+}
+
+- (NSString *)keychainGroup
+{
+    if (!_keychainGroup) {
+        NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
+        NSArray *components = [identifier componentsSeparatedByString:@"."];
+        if (components.count > 2) {
+            _keychainGroup = [NSString stringWithFormat:@"%@.%@.*", components[0], components[1]];
+        } else {
+            _keychainGroup = @"com.xxx.*";
+        }
+    }
+    return _keychainGroup;
 }
 
 - (NSData *)changeStringToData:(NSString *)str

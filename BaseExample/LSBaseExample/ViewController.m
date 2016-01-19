@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Book.h"
 #import "LSBase.h"
+#import "LSUDIDGenerator.h"
 
 @interface ViewController ()
 
@@ -56,6 +57,8 @@
     [button setTitle:@"按按钮" forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"position.png"] forState:UIControlStateNormal];
     [self.view addSubview:button];
+    
+    [[LSUDIDGenerator sharedInstance] udid];
 
 }
 

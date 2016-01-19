@@ -20,7 +20,7 @@
 
 @interface UIView (LS)
 
-@property (nonatomic, strong) NSDictionary *lsUserInfo;
+@property (nonatomic, strong) id lsUserInfo;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 
 + (NSString *)className;
