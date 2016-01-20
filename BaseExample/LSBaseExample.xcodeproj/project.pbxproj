@@ -50,6 +50,7 @@
 		DE7B5CAC1C112D4100904476 /* LSUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C8D1C112D4100904476 /* LSUDIDGenerator.m */; };
 		DE7B5CAD1C112D4100904476 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C8F1C112D4100904476 /* Reachability.m */; };
 		DE7B5CB21C112F8300904476 /* NSObject+RunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5CB11C112F8300904476 /* NSObject+RunTime.m */; };
+		DED6C9CF1C4F3357009F43C9 /* UINavigationController+LSPush.m in Sources */ = {isa = PBXBuildFile; fileRef = DED6C9CE1C4F3357009F43C9 /* UINavigationController+LSPush.m */; };
 		DEEF8D321C3B999A00A499F9 /* NSObject+LSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF8D2F1C3B999A00A499F9 /* NSObject+LSModel.m */; };
 		DEEF8D331C3B999A00A499F9 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF8D311C3B999A00A499F9 /* YYClassInfo.m */; };
 		DEEF8D371C3BA0F500A499F9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF8D361C3BA0F500A499F9 /* User.m */; };
@@ -146,6 +147,8 @@
 		DE7B5CB61C11358200904476 /* LSFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSFoundation.h; sourceTree = "<group>"; };
 		DE7B5CB71C1135A300904476 /* LSUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSUIKit.h; sourceTree = "<group>"; };
 		DE7B5CB81C1135B700904476 /* LSUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSUtility.h; sourceTree = "<group>"; };
+		DED6C9CD1C4F3357009F43C9 /* UINavigationController+LSPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+LSPush.h"; sourceTree = "<group>"; };
+		DED6C9CE1C4F3357009F43C9 /* UINavigationController+LSPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+LSPush.m"; sourceTree = "<group>"; };
 		DEEF8D2E1C3B999A00A499F9 /* NSObject+LSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LSModel.h"; sourceTree = "<group>"; };
 		DEEF8D2F1C3B999A00A499F9 /* NSObject+LSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LSModel.m"; sourceTree = "<group>"; };
 		DEEF8D301C3B999A00A499F9 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 				DE7B5C731C112D4100904476 /* UIImage+LSPS.m */,
 				DE7B5C741C112D4100904476 /* UINavigationBar+LS.h */,
 				DE7B5C751C112D4100904476 /* UINavigationBar+LS.m */,
+				DED6C9CD1C4F3357009F43C9 /* UINavigationController+LSPush.h */,
+				DED6C9CE1C4F3357009F43C9 /* UINavigationController+LSPush.m */,
 				DE7B5C761C112D4100904476 /* UINavigationController+LSSafe.h */,
 				DE7B5C771C112D4100904476 /* UINavigationController+LSSafe.m */,
 				DE7B5C781C112D4100904476 /* UIView+Genie.h */,
@@ -429,6 +434,7 @@
 				DE7B5C931C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.m in Sources */,
 				DEEF8D371C3BA0F500A499F9 /* User.m in Sources */,
 				DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */,
+				DED6C9CF1C4F3357009F43C9 /* UINavigationController+LSPush.m in Sources */,
 				DE7B5C381C11256A00904476 /* ViewController.m in Sources */,
 				DE7B5C9C1C112D4100904476 /* NSString+URLQueryResolver.m in Sources */,
 				DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */,
