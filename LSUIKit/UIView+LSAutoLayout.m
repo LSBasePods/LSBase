@@ -86,10 +86,10 @@
 
 - (void)clearAllConstraints
 {
-    [self autoRemoveConstraintsAffectingViewIncludingImplicitConstraints:NO];
+    [self removeConstraints:self.constraints];
     
     for (UIView *sub in [self subviews]) {
-        [sub autoRemoveConstraintsAffectingViewIncludingImplicitConstraints:NO];
+        [sub clearAllConstraints];
     }
 }
 
