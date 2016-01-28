@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 
-@interface Book : NSObject
+@interface Book : NSObject  <LSModel>
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSNumber *pages;

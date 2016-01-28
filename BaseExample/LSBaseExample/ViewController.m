@@ -23,7 +23,7 @@
     
     self.view.backgroundColor = [UIColor redColor];
 
-    Book *book1 = [Book modelWithJSON:@"{\"name\": \"Harry Potter\",\"read\": 1, \"pages\": 256, \"user\": {\"name\": \"J.K.Rowling\", \"birthday\": \"1965-07-31\" }}" discrepantKeys:@{@"hasRead":@"read"}];
+    Book *book1 = [Book modelWithJSON:@"{\"name\": \"Harry Potter\",\"read\": 1, \"pages\": 256, \"user\": {\"name\": \"J.K.Rowling\", \"birthday\": \"1965-07-31\" }}"];
     NSLog(@"book1's user name : %@", book1.user.name);
     
     //**** Model from Other Object

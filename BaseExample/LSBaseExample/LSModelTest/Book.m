@@ -11,6 +11,11 @@
 
 @implementation Book
 
++ (NSDictionary *)discrepantKeys
+{
+    return @{@"hasRead":@"read"};
+}
+
 ARRAY_PROPERTY_SETTER(User, userList, setUserList)
 
 @end

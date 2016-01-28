@@ -14,10 +14,6 @@
 #pragma mark - Public Methods
 + (instancetype)modelWithJSON:(id)json
 {
-    NSDictionary *discrepantKeys = nil;
-    if ([self instancesRespondToSelector:@selector(discrepantKeys)]) {
-        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
-    }
     return [self modelWithJSON:json discrepantKeys:0];
 }
 
@@ -29,10 +25,6 @@
 
 + (instancetype)modelWithDictionary:(NSDictionary *)dictionary
 {
-    NSDictionary *discrepantKeys = nil;
-    if ([self instancesRespondToSelector:@selector(discrepantKeys)]) {
-        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
-    }
     return [self modelWithDictionary:dictionary discrepantKeys:0];
 }
 
@@ -40,6 +32,10 @@
 {
     if (!dictionary || dictionary == (id)kCFNull) return nil;
     if (![dictionary isKindOfClass:[NSDictionary class]]) return nil;
+    
+    if (!discrepantKeys && class_getClassMethod(self, @selector(discrepantKeys))) {
+        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
+    }
     
     Class cls = [self class];
     
@@ -62,15 +58,15 @@
 
 + (instancetype)modelWithOtherObject:(id)object
 {
-    NSDictionary *discrepantKeys = nil;
-    if ([self instancesRespondToSelector:@selector(discrepantKeys)]) {
-        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
-    }
-    return [self modelWithOtherObject:object discrepantKeys:discrepantKeys];
+    return [self modelWithOtherObject:object discrepantKeys:0];
 }
 
 + (instancetype)modelWithOtherObject:(id)object discrepantKeys:(NSDictionary *)discrepantKeys
 {
+    if (!discrepantKeys && class_getClassMethod(self, @selector(discrepantKeys))) {
+        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
+    }
+    
     Class cls = [self class];
     
     //TODO Cached Class
@@ -92,11 +88,7 @@
 
 - (BOOL)modelSetWithJSON:(id)json
 {
-    NSDictionary *discrepantKeys = nil;
-    if ([[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
-        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
-    }
-    return [self modelSetWithJSON:json discrepantKeys:discrepantKeys];
+    return [self modelSetWithJSON:json discrepantKeys:0];
 }
 
 - (BOOL)modelSetWithJSON:(id)json discrepantKeys:(NSDictionary *)discrepantKeys
@@ -107,17 +99,17 @@
 
 - (BOOL)modelSetWithDictionary:(NSDictionary *)dic
 {
-    NSDictionary *discrepantKeys = nil;
-    if ([[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
-        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
-    }
-    return [self modelSetWithDictionary:dic discrepantKeys:discrepantKeys];
+    return [self modelSetWithDictionary:dic discrepantKeys:0];
 }
 
 - (BOOL)modelSetWithDictionary:(NSDictionary *)dic discrepantKeys:(NSDictionary *)discrepantKeys
 {
     if (!dic || dic == (id)kCFNull) return NO;
     if (![dic isKindOfClass:[NSDictionary class]]) return NO;
+    
+    if (!discrepantKeys && class_getClassMethod([self class], @selector(discrepantKeys))) {
+        discrepantKeys = [([(id<LSModel>)self class]) discrepantKeys];
+    }
     
     NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
     for (NSString *nativePropertyName in writablePropertyKeyPairs) {
@@ -162,15 +154,15 @@
 
 - (BOOL)modelSetWithOtherObject:(id)object
 {
-    NSDictionary *discrepantKeys = nil;
-    if ([[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
-        discrepantKeys = [((id<LSModel>)self) discrepantKeys];
-    }
-    return [self modelSetWithOtherObject:object discrepantKeys:discrepantKeys];
+    return [self modelSetWithOtherObject:object discrepantKeys:0];
 }
 
 - (BOOL)modelSetWithOtherObject:(id)object discrepantKeys:(NSDictionary *)discrepantKeys
 {
+    if (!discrepantKeys && class_getClassMethod([self class], @selector(discrepantKeys))) {
+        discrepantKeys = [([(id<LSModel>)self class]) discrepantKeys];
+    }
+
     NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
     for (NSString *nativePropertyName in writablePropertyKeyPairs) {
         

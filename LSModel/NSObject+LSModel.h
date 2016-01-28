@@ -11,13 +11,14 @@
 
 @protocol LSModel <NSObject>
 
+@optional
 /**
  *  服务器返回的属性与本地属性不对等的列表，以 本地属性名:服务器属性名 为一个单元
  *  如果服务器与本地属性相同不需要加入此列表
  *
  *  @return 差异属性名称列表
  */
-+ (NSDictionary *)discrepantKeys;
+- (NSDictionary *)discrepantKeys;
 
 // 手动设置 model 属性
 - (BOOL)customModelSetWithDictionary:(NSDictionary *)dic;
