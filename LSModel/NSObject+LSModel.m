@@ -15,7 +15,7 @@
 + (instancetype)modelWithJSON:(id)json
 {
     NSDictionary *discrepantKeys = nil;
-    if ([self conformsToProtocol:@protocol(LSModel)] && [self instancesRespondToSelector:@selector(discrepantKeys)]) {
+    if ([self instancesRespondToSelector:@selector(discrepantKeys)]) {
         discrepantKeys = [((id<LSModel>)self) discrepantKeys];
     }
     return [self modelWithJSON:json discrepantKeys:0];
@@ -30,7 +30,7 @@
 + (instancetype)modelWithDictionary:(NSDictionary *)dictionary
 {
     NSDictionary *discrepantKeys = nil;
-    if ([self conformsToProtocol:@protocol(LSModel)] && [self instancesRespondToSelector:@selector(discrepantKeys)]) {
+    if ([self instancesRespondToSelector:@selector(discrepantKeys)]) {
         discrepantKeys = [((id<LSModel>)self) discrepantKeys];
     }
     return [self modelWithDictionary:dictionary discrepantKeys:0];
@@ -46,6 +46,13 @@
     //TODO Cached Class
     
     NSObject *one = [cls new];
+    
+    // 拦截自动设置，手动设置model set
+    if ([one respondsToSelector:@selector(customModelSetWithDictionary:)]) {
+        [((id<LSModel>)one) customModelSetWithDictionary:dictionary];
+        return one;
+    }
+    
     if ([one modelSetWithDictionary:dictionary discrepantKeys:discrepantKeys]) {
         return one;
     }
@@ -56,7 +63,7 @@
 + (instancetype)modelWithOtherObject:(id)object
 {
     NSDictionary *discrepantKeys = nil;
-    if ([self conformsToProtocol:@protocol(LSModel)] && [self instancesRespondToSelector:@selector(discrepantKeys)]) {
+    if ([self instancesRespondToSelector:@selector(discrepantKeys)]) {
         discrepantKeys = [((id<LSModel>)self) discrepantKeys];
     }
     return [self modelWithOtherObject:object discrepantKeys:discrepantKeys];
@@ -69,6 +76,13 @@
     //TODO Cached Class
     
     NSObject *one = [cls new];
+    
+    // 拦截自动设置，手动设置model
+    if ([one respondsToSelector:@selector(customModelSetWithOtherObject:)]) {
+        [((id<LSModel>)one) customModelSetWithOtherObject:object];
+        return one;
+    }
+    
     if ([one modelSetWithOtherObject:object discrepantKeys:discrepantKeys]) {
         return one;
     }
@@ -79,7 +93,7 @@
 - (BOOL)modelSetWithJSON:(id)json
 {
     NSDictionary *discrepantKeys = nil;
-    if ([self conformsToProtocol:@protocol(LSModel)] && [[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
+    if ([[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
         discrepantKeys = [((id<LSModel>)self) discrepantKeys];
     }
     return [self modelSetWithJSON:json discrepantKeys:discrepantKeys];
@@ -94,7 +108,7 @@
 - (BOOL)modelSetWithDictionary:(NSDictionary *)dic
 {
     NSDictionary *discrepantKeys = nil;
-    if ([self conformsToProtocol:@protocol(LSModel)] && [[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
+    if ([[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
         discrepantKeys = [((id<LSModel>)self) discrepantKeys];
     }
     return [self modelSetWithDictionary:dic discrepantKeys:discrepantKeys];
@@ -149,7 +163,7 @@
 - (BOOL)modelSetWithOtherObject:(id)object
 {
     NSDictionary *discrepantKeys = nil;
-    if ([self conformsToProtocol:@protocol(LSModel)] && [[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
+    if ([[self class] instancesRespondToSelector:@selector(discrepantKeys)]) {
         discrepantKeys = [((id<LSModel>)self) discrepantKeys];
     }
     return [self modelSetWithOtherObject:object discrepantKeys:discrepantKeys];

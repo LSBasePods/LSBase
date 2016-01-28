@@ -19,6 +19,10 @@
  */
 + (NSDictionary *)discrepantKeys;
 
+// 手动设置 model 属性
+- (BOOL)customModelSetWithDictionary:(NSDictionary *)dic;
+- (BOOL)customModelSetWithOtherObject:(id)object;
+
 @end
 
 @interface NSObject (LSModel)
