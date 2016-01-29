@@ -10,6 +10,8 @@
 
 @interface NSNumber (LS)
 
+- (NSString *)priceValue;
+
 - (BOOL)isEqualToNumberSafe:(NSNumber *)number;
 
 @end

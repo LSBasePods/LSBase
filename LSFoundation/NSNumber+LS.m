@@ -10,6 +10,11 @@
 
 @implementation NSNumber (LS)
 
+- (NSString *)priceValue
+{
+    return [NSString stringWithFormat:@"%.2f", [self floatValue]];
+}
+
 - (BOOL)isEqualToNumberSafe:(NSNumber *)number
 {
     if (number) {
