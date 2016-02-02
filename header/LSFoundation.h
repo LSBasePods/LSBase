@@ -21,5 +21,4 @@
 #import "NSString+MD5.h"
 #import "NSString+Sha1.h"
 #import "NSString+TreatAsNSNumber.h"
-#import "NSString+URLQueryResolver.h"
 #import "NSString+ValidateCheck.h"

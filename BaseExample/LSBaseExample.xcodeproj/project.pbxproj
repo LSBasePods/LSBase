@@ -35,7 +35,6 @@
 		DE7B5C991C112D4100904476 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C611C112D4100904476 /* NSString+MD5.m */; };
 		DE7B5C9A1C112D4100904476 /* NSString+Sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C631C112D4100904476 /* NSString+Sha1.m */; };
 		DE7B5C9B1C112D4100904476 /* NSString+TreatAsNSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C651C112D4100904476 /* NSString+TreatAsNSNumber.m */; };
-		DE7B5C9C1C112D4100904476 /* NSString+URLQueryResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C671C112D4100904476 /* NSString+URLQueryResolver.m */; };
 		DE7B5C9D1C112D4100904476 /* NSString+ValidateCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C691C112D4100904476 /* NSString+ValidateCheck.m */; };
 		DE7B5C9F1C112D4100904476 /* UIColor+LSHex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C711C112D4100904476 /* UIColor+LSHex.m */; };
 		DE7B5CA01C112D4100904476 /* UIImage+LSPS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C731C112D4100904476 /* UIImage+LSPS.m */; };
@@ -113,8 +112,6 @@
 		DE7B5C631C112D4100904476 /* NSString+Sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Sha1.m"; sourceTree = "<group>"; };
 		DE7B5C641C112D4100904476 /* NSString+TreatAsNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TreatAsNSNumber.h"; sourceTree = "<group>"; };
 		DE7B5C651C112D4100904476 /* NSString+TreatAsNSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TreatAsNSNumber.m"; sourceTree = "<group>"; };
-		DE7B5C661C112D4100904476 /* NSString+URLQueryResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLQueryResolver.h"; sourceTree = "<group>"; };
-		DE7B5C671C112D4100904476 /* NSString+URLQueryResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLQueryResolver.m"; sourceTree = "<group>"; };
 		DE7B5C681C112D4100904476 /* NSString+ValidateCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ValidateCheck.h"; sourceTree = "<group>"; };
 		DE7B5C691C112D4100904476 /* NSString+ValidateCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ValidateCheck.m"; sourceTree = "<group>"; };
 		DE7B5C701C112D4100904476 /* UIColor+LSHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LSHex.h"; sourceTree = "<group>"; };
@@ -253,8 +250,6 @@
 				DE7B5C631C112D4100904476 /* NSString+Sha1.m */,
 				DE7B5C641C112D4100904476 /* NSString+TreatAsNSNumber.h */,
 				DE7B5C651C112D4100904476 /* NSString+TreatAsNSNumber.m */,
-				DE7B5C661C112D4100904476 /* NSString+URLQueryResolver.h */,
-				DE7B5C671C112D4100904476 /* NSString+URLQueryResolver.m */,
 				DE7B5C681C112D4100904476 /* NSString+ValidateCheck.h */,
 				DE7B5C691C112D4100904476 /* NSString+ValidateCheck.m */,
 			);
@@ -436,7 +431,6 @@
 				DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */,
 				DED6C9CF1C4F3357009F43C9 /* UINavigationController+LSPush.m in Sources */,
 				DE7B5C381C11256A00904476 /* ViewController.m in Sources */,
-				DE7B5C9C1C112D4100904476 /* NSString+URLQueryResolver.m in Sources */,
 				DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */,
 				DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */,
 				DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */,
