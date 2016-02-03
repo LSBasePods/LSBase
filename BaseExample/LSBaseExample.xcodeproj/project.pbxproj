@@ -17,6 +17,7 @@
 		DE4F38E91C117D3200D64EF6 /* LSCommonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38E81C117D3200D64EF6 /* LSCommonInfo.m */; };
 		DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */; };
 		DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */; };
+		DE5BCF951C625C14004AFBC5 /* UITableView+indexPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */; };
 		DE7B5C321C11256A00904476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C311C11256A00904476 /* main.m */; };
 		DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C341C11256A00904476 /* AppDelegate.m */; };
 		DE7B5C381C11256A00904476 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C371C11256A00904476 /* ViewController.m */; };
@@ -78,6 +79,8 @@
 		DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSFileAssistant.m; sourceTree = "<group>"; };
 		DE4F38EC1C1198B500D64EF6 /* LSPhoneCallHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPhoneCallHelper.h; sourceTree = "<group>"; };
 		DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPhoneCallHelper.m; sourceTree = "<group>"; };
+		DE5BCF931C625C14004AFBC5 /* UITableView+indexPathCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+indexPathCell.h"; sourceTree = "<group>"; };
+		DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+indexPathCell.m"; sourceTree = "<group>"; };
 		DE7B5C2D1C11256A00904476 /* LSBaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSBaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7B5C311C11256A00904476 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE7B5C331C11256A00904476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */,
 				140F74BB1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.h */,
 				140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */,
+				DE5BCF931C625C14004AFBC5 /* UITableView+indexPathCell.h */,
+				DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */,
 			);
 			name = LSUIKit;
 			path = ../LSUIKit;
@@ -437,6 +442,7 @@
 				140F74BD1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m in Sources */,
 				DE7B5C9F1C112D4100904476 /* UIColor+LSHex.m in Sources */,
 				DE7B5CA01C112D4100904476 /* UIImage+LSPS.m in Sources */,
+				DE5BCF951C625C14004AFBC5 /* UITableView+indexPathCell.m in Sources */,
 				DE7B5C9D1C112D4100904476 /* NSString+ValidateCheck.m in Sources */,
 				DE7B5CB21C112F8300904476 /* NSObject+RunTime.m in Sources */,
 				DE7B5CA71C112D4100904476 /* UIView+LSRemoveAllSubview.m in Sources */,

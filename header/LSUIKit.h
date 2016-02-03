@@ -20,3 +20,4 @@
 #import "UIGestureRecognizer+LS.h"
 #import "UIButton+LSImageAndTitleStyle.h"
 #import "UINavigationController+LSPush.h"
+#import "UITableView+indexPathCell.h"
