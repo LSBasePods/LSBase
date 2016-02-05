@@ -102,7 +102,7 @@ typedef NS_ENUM(NSInteger, LSSearchPathDirectory)
  *  @param pathOfFile    文件名
  *  @param directoryType 文件在沙箱中的目录
  */
-+ (BOOL)copyFileWithPath:(NSString *)pathOfFile toSystemDirectoryType:(LSSearchPathDirectory)directoryType;
++ (BOOL)copyAppBundleFileWithPath:(NSString *)pathOfFile toSystemDirectoryType:(LSSearchPathDirectory)directoryType;
 
 
 /**

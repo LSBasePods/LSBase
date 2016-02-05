@@ -88,7 +88,7 @@
     return [[class alloc] initWithContentsOfFile:absolutePath];
 }
 
-+ (BOOL)copyFileWithPath:(NSString *)pathOfFile toSystemDirectoryType:(LSSearchPathDirectory)directoryType
++ (BOOL)copyAppBundleFileWithPath:(NSString *)pathOfFile toSystemDirectoryType:(LSSearchPathDirectory)directoryType
 {
     NSString *plistPathInBundle = [[NSBundle mainBundle] pathForResource:pathOfFile ofType:nil];
     if (![[NSFileManager defaultManager] fileExistsAtPath:pathOfFile] && plistPathInBundle) {
