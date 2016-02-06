@@ -14,13 +14,40 @@
 + (UIImage *)imageNamed:(NSString *)name cache:(BOOL)cache
 {
     if (!cache) {
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+        NSString *bundlePath = [UIImage bundlePathForName:name];
         return [UIImage imageWithContentsOfFile:bundlePath];
     } else {
         return [UIImage imageNamed:name];
     }
 }
 
++ (NSString *)bundlePathForName:(NSString *)name
+{
+    NSString *lastPath = [name lastPathComponent];
+    NSString *newName = [lastPath stringByDeletingPathExtension];
+    NSString *ext = [lastPath pathExtension];
+    
+    NSArray *extArray = @[@"png", @"jpg"];
+    NSArray *scaleArray = @[@"@2x", @"@3x", @""];
+    NSString *path = @"";
+    for (NSString *scale in scaleArray) {
+        NSString *resource = [newName stringByAppendingString:scale];
+        if (ext.length > 0) {
+            path = [[NSBundle mainBundle] pathForResource:resource ofType:ext];
+        } else {
+            for (NSString *newExt in extArray) {
+                path = [[NSBundle mainBundle] pathForResource:resource ofType:newExt];
+                if (path) {
+                    break;
+                }
+            }
+        }
+        if (path) {
+            break;
+        }
+    }
+    return path;
+}
 + (UIImage *)createImageWithColor:(UIColor *)color
 {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
