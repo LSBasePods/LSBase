@@ -11,6 +11,7 @@
 @interface UIImage (LSPS)
 
 #pragma mark - Create
++ (UIImage *)imageNamed:(NSString *)name cache:(BOOL)cache;
 + (UIImage *)createImageWithColor:(UIColor *)color;
 + (UIImage *)createMaskWithImage:(UIImage *)image outColor:(UIColor *)outColor innerColor:(UIColor *)innerColor;
 

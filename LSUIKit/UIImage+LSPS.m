@@ -11,6 +11,16 @@
 @implementation UIImage (LSPS)
 
 #pragma mark - Create
++ (UIImage *)imageNamed:(NSString *)name cache:(BOOL)cache
+{
+    if (!cache) {
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+        return [UIImage imageWithContentsOfFile:bundlePath];
+    } else {
+        return [UIImage imageNamed:name];
+    }
+}
+
 + (UIImage *)createImageWithColor:(UIColor *)color
 {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
