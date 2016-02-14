@@ -10,6 +10,11 @@
 
 @implementation NSString (LS)
 
+- (NSString *)trim
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
     if (!font) font = [UIFont systemFontOfSize:12];

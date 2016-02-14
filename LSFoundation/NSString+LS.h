@@ -10,6 +10,8 @@
 
 @interface NSString (LS)
 
+- (NSString *)trim;
+
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode;
 
 /**

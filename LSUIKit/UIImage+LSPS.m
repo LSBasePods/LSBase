@@ -7,12 +7,17 @@
 //
 
 #import "UIImage+LSPS.h"
+#import "NSString+LS.h"
 
 @implementation UIImage (LSPS)
 
 #pragma mark - Create
 + (UIImage *)imageNamed:(NSString *)name cache:(BOOL)cache
 {
+    name = [name trim];
+    if (name.length == 0) {
+        return nil;
+    }
     if (!cache) {
         NSString *bundlePath = [UIImage bundlePathForName:name];
         return [UIImage imageWithContentsOfFile:bundlePath];
@@ -23,13 +28,17 @@
 
 + (NSString *)bundlePathForName:(NSString *)name
 {
+    NSString *path = @"";
+    name = [name trim];
+    if (name.length == 0) {
+        return path;
+    }
     NSString *lastPath = [name lastPathComponent];
     NSString *newName = [lastPath stringByDeletingPathExtension];
     NSString *ext = [lastPath pathExtension];
     
     NSArray *extArray = @[@"png", @"jpg"];
     NSArray *scaleArray = @[@"@2x", @"@3x", @""];
-    NSString *path = @"";
     for (NSString *scale in scaleArray) {
         NSString *resource = [newName stringByAppendingString:scale];
         if (ext.length > 0) {
@@ -48,6 +57,7 @@
     }
     return path;
 }
+
 + (UIImage *)createImageWithColor:(UIColor *)color
 {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
