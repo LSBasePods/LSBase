@@ -18,7 +18,7 @@
  *
  *  @return 差异属性名称列表
  */
-- (NSDictionary *)discrepantKeys;
++ (NSDictionary *)discrepantKeys;
 
 // 手动设置 model 属性
 - (BOOL)customModelSetWithDictionary:(NSDictionary *)dic;
