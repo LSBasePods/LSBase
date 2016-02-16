@@ -60,15 +60,13 @@
 //    
 //    [[LSUDIDGenerator sharedInstance] udid];
     
-    UILabel *label = [UILabel new];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     [label showBorderPosition:LSBorderPositionAll borderColor:[UIColor orangeColor] borderWidth:1.0 contentInsets:UIEdgeInsetsMake(1, 2, 3, 4)];
-    [label useAutoLayout];
     label.backgroundColor =[UIColor grayColor];
     label.contentInsets = UIEdgeInsetsMake(10, 10, 20, 20);
-    label.text = @"qweqeqw";
-    label.textAlignment = NSTextAlignmentCenter;
+    [label showText:@"qeqeqwas" leftPadding:13];
     [self.view addSubview:label];
-    [label autoAlignInSuperview:LSAutoLayoutAlignCenterY];
+//    [label autoAlignInSuperview:LSAutoLayoutAlignCenterY];
 
 }
 

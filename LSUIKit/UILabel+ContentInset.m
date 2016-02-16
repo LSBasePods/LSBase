@@ -31,6 +31,15 @@ static char TAG_CONTENTINSETS;
     return inset;
 }
 
+- (void)showText:(NSString *)text leftPadding:(CGFloat)leftPadding
+{
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.firstLineHeadIndent = leftPadding;
+    [string addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, string.length)];
+    self.attributedText = string;
+}
+
 + (void)load
 {
     static dispatch_once_t onceToken;
@@ -51,7 +60,5 @@ static char TAG_CONTENTINSETS;
     size.height += (self.contentInsets.top + self.contentInsets.bottom);
     return size;
 }
-
-
 
 @end
