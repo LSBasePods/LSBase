@@ -22,3 +22,4 @@
 #import "UINavigationController+LSPush.h"
 #import "UITableView+indexPathCell.h"
 #import "UILabel+ContentInset.h"
+#import "UIView+LSBorder.h"

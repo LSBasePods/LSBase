@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 
 //    Book *book1 = [Book modelWithJSON:@"{\"name\": \"Harry Potter\",\"read\": 1, \"pages\": 256, \"user\": {\"name\": \"J.K.Rowling\", \"birthday\": \"1965-07-31\" }}"];
 //    NSLog(@"book1's user name : %@", book1.user.name);
@@ -61,6 +61,7 @@
 //    [[LSUDIDGenerator sharedInstance] udid];
     
     UILabel *label = [UILabel new];
+    [label showBorderPosition:LSBorderPositionAll borderColor:[UIColor orangeColor] borderWidth:1.0 contentInsets:UIEdgeInsetsMake(1, 2, 3, 4)];
     [label useAutoLayout];
     label.backgroundColor =[UIColor grayColor];
     label.contentInsets = UIEdgeInsetsMake(10, 10, 20, 20);
