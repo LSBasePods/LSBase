@@ -21,3 +21,4 @@
 #import "UIButton+LSImageAndTitleStyle.h"
 #import "UINavigationController+LSPush.h"
 #import "UITableView+indexPathCell.h"
+#import "UILabel+ContentInset.h"
