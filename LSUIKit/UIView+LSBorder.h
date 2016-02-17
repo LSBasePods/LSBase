@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, LSBorderPosition) {
+typedef NS_OPTIONS(NSInteger, LSBorderPosition) {
     LSBorderPositionAll         = 0,
     LSBorderPositionTop         = 1 << 0,
     LSBorderPositionLeft        = 1 << 1,

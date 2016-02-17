@@ -50,7 +50,6 @@ NSString *const key_Border_ContentInsets = @"key_Border_ContentInsets";
     if (right) {
         [self.borderDic setObject:valueDic forKey:@(LSBorderPositionRight)];
     }
-    NSLog(@"%@", self.borderDic);
 }
 
 - (void)showTopBorderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth contentInsets:(UIEdgeInsets)contentInsets
