@@ -11,3 +11,8 @@
 @interface UITableView (indexPathCell)
 
 @end
+
+@interface UICollectionView (indexPathCell)
+
+@end
+

@@ -12,6 +12,7 @@
 		149B64911C72C370005272B6 /* UIView+LSBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B64901C72C370005272B6 /* UIView+LSBorder.m */; };
 		14FD30F61C75BE0100BF233C /* NSObject+LSTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */; };
 		14FDF1DB1C4A1916001A81F9 /* UIViewMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FDF1DA1C4A1916001A81F9 /* UIViewMapping.m */; };
+		DE03938C1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DE03938B1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m */; };
 		DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */; };
 		DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38DC1C1173A500D64EF6 /* UIBarButtonItem+LS.m */; };
 		DE4F38E01C1174C800D64EF6 /* UIGestureRecognizer+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */; };
@@ -71,6 +72,8 @@
 		14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LSTopViewController.m"; sourceTree = "<group>"; };
 		14FDF1D91C4A1916001A81F9 /* UIViewMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewMapping.h; sourceTree = "<group>"; };
 		14FDF1DA1C4A1916001A81F9 /* UIViewMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewMapping.m; sourceTree = "<group>"; };
+		DE03938A1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+LSRegisterCellClass.h"; sourceTree = "<group>"; };
+		DE03938B1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+LSRegisterCellClass.m"; sourceTree = "<group>"; };
 		DE4F38D71C1139F300D64EF6 /* LSBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LSBase.h; path = ../LSBase.h; sourceTree = "<group>"; };
 		DE4F38D81C1171D800D64EF6 /* UIControl+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+LS.h"; sourceTree = "<group>"; };
 		DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+LS.m"; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 				140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */,
 				DE5BCF931C625C14004AFBC5 /* UITableView+indexPathCell.h */,
 				DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */,
+				DE03938A1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.h */,
+				DE03938B1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m */,
 				149B648C1C722747005272B6 /* UILabel+ContentInset.h */,
 				149B648D1C722747005272B6 /* UILabel+ContentInset.m */,
 				149B648F1C72C370005272B6 /* UIView+LSBorder.h */,
@@ -445,6 +450,7 @@
 				DEEF8D3A1C3BA11700A499F9 /* Book.m in Sources */,
 				DE7B5C921C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.m in Sources */,
 				DEEF8D321C3B999A00A499F9 /* NSObject+LSModel.m in Sources */,
+				DE03938C1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m in Sources */,
 				DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */,
 				DE7B5C931C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.m in Sources */,
 				DEEF8D371C3BA0F500A499F9 /* User.m in Sources */,

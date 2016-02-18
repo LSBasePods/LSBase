@@ -28,3 +28,22 @@
 }
 
 @end
+
+@implementation UICollectionView (indexPathCell)
+
++ (void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self swizzleInstanceMethod:@selector(dequeueReusableCellWithReuseIdentifier:forIndexPath:) with:@selector(ls_dequeueReusableCellWithIdentifier:forIndexPath:)];
+    });
+}
+
+- (__kindof UICollectionViewCell *)ls_dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath
+{
+    __kindof UICollectionViewCell *cell = [self ls_dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell.indexPath = indexPath;
+    return cell;
+}
+
+@end

@@ -24,3 +24,4 @@
 #import "UILabel+ContentInset.h"
 #import "UIView+LSBorder.h"
 #import "NSObject+LSTopViewController.h"
+#import "UITableView+LSRegisterCellClass.h"
