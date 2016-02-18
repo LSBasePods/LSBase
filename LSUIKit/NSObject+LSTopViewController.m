@@ -12,7 +12,7 @@
 
 + (UIViewController *)topViewControllerInWindow
 {
-    UIWindow *windows = [[UIApplication sharedApplication].windows firstObject];
+    UIWindow *windows = [UIApplication sharedApplication].keyWindow;
     UIViewController *topViewController = [UIViewController returnVisibleViewControllerForController:windows.rootViewController];
     return topViewController;
 }
