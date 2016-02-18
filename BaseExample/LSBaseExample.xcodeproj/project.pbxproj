@@ -11,6 +11,8 @@
 		149B648E1C722747005272B6 /* UILabel+ContentInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B648D1C722747005272B6 /* UILabel+ContentInset.m */; };
 		149B64911C72C370005272B6 /* UIView+LSBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B64901C72C370005272B6 /* UIView+LSBorder.m */; };
 		14FD30F61C75BE0100BF233C /* NSObject+LSTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */; };
+		14FD30FC1C75D73300BF233C /* UIButton+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FD30FB1C75D73300BF233C /* UIButton+LS.m */; };
+		14FD30FF1C75D7DD00BF233C /* UILabel+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FD30FE1C75D7DD00BF233C /* UILabel+LS.m */; };
 		14FDF1DB1C4A1916001A81F9 /* UIViewMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FDF1DA1C4A1916001A81F9 /* UIViewMapping.m */; };
 		DE03938C1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DE03938B1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m */; };
 		DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */; };
@@ -70,6 +72,10 @@
 		149B64901C72C370005272B6 /* UIView+LSBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LSBorder.m"; sourceTree = "<group>"; };
 		14FD30F41C75BE0100BF233C /* NSObject+LSTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LSTopViewController.h"; sourceTree = "<group>"; };
 		14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LSTopViewController.m"; sourceTree = "<group>"; };
+		14FD30FA1C75D73300BF233C /* UIButton+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LS.h"; sourceTree = "<group>"; };
+		14FD30FB1C75D73300BF233C /* UIButton+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LS.m"; sourceTree = "<group>"; };
+		14FD30FD1C75D7DD00BF233C /* UILabel+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LS.h"; sourceTree = "<group>"; };
+		14FD30FE1C75D7DD00BF233C /* UILabel+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LS.m"; sourceTree = "<group>"; };
 		14FDF1D91C4A1916001A81F9 /* UIViewMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewMapping.h; sourceTree = "<group>"; };
 		14FDF1DA1C4A1916001A81F9 /* UIViewMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewMapping.m; sourceTree = "<group>"; };
 		DE03938A1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+LSRegisterCellClass.h"; sourceTree = "<group>"; };
@@ -288,22 +294,40 @@
 		DE7B5C6F1C112D4100904476 /* LSUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				14FD30F41C75BE0100BF233C /* NSObject+LSTopViewController.h */,
+				14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */,
+				DE4F38DB1C1173A500D64EF6 /* UIBarButtonItem+LS.h */,
+				DE4F38DC1C1173A500D64EF6 /* UIBarButtonItem+LS.m */,
+				14FD30FA1C75D73300BF233C /* UIButton+LS.h */,
+				14FD30FB1C75D73300BF233C /* UIButton+LS.m */,
+				140F74BB1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.h */,
+				140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */,
 				DE7B5C701C112D4100904476 /* UIColor+LSHex.h */,
 				DE7B5C711C112D4100904476 /* UIColor+LSHex.m */,
+				DE4F38D81C1171D800D64EF6 /* UIControl+LS.h */,
+				DE4F38D91C1171D800D64EF6 /* UIControl+LS.m */,
+				DE4F38DE1C1174C800D64EF6 /* UIGestureRecognizer+LS.h */,
+				DE4F38DF1C1174C800D64EF6 /* UIGestureRecognizer+LS.m */,
 				DE7B5C721C112D4100904476 /* UIImage+LSPS.h */,
 				DE7B5C731C112D4100904476 /* UIImage+LSPS.m */,
+				149B648C1C722747005272B6 /* UILabel+ContentInset.h */,
+				149B648D1C722747005272B6 /* UILabel+ContentInset.m */,
 				DE7B5C741C112D4100904476 /* UINavigationBar+LS.h */,
 				DE7B5C751C112D4100904476 /* UINavigationBar+LS.m */,
 				DED6C9CD1C4F3357009F43C9 /* UINavigationController+LSPush.h */,
 				DED6C9CE1C4F3357009F43C9 /* UINavigationController+LSPush.m */,
 				DE7B5C761C112D4100904476 /* UINavigationController+LSSafe.h */,
 				DE7B5C771C112D4100904476 /* UINavigationController+LSSafe.m */,
+				DE5BCF931C625C14004AFBC5 /* UITableView+indexPathCell.h */,
+				DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */,
 				DE7B5C781C112D4100904476 /* UIView+Genie.h */,
 				DE7B5C791C112D4100904476 /* UIView+Genie.m */,
 				DE7B5C7A1C112D4100904476 /* UIView+LS.h */,
 				DE7B5C7B1C112D4100904476 /* UIView+LS.m */,
 				DE7B5C7C1C112D4100904476 /* UIView+LSAutoLayout.h */,
 				DE7B5C7D1C112D4100904476 /* UIView+LSAutoLayout.m */,
+				149B648F1C72C370005272B6 /* UIView+LSBorder.h */,
+				149B64901C72C370005272B6 /* UIView+LSBorder.m */,
 				DE7B5C7E1C112D4100904476 /* UIView+LSFrame.h */,
 				DE7B5C7F1C112D4100904476 /* UIView+LSFrame.m */,
 				DE7B5C801C112D4100904476 /* UIView+LSRemoveAllSubview.h */,
@@ -326,6 +350,8 @@
 				149B64901C72C370005272B6 /* UIView+LSBorder.m */,
 				14FD30F41C75BE0100BF233C /* NSObject+LSTopViewController.h */,
 				14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */,
+				14FD30FD1C75D7DD00BF233C /* UILabel+LS.h */,
+				14FD30FE1C75D7DD00BF233C /* UILabel+LS.m */,
 			);
 			name = LSUIKit;
 			path = ../LSUIKit;
@@ -456,6 +482,7 @@
 				DEEF8D371C3BA0F500A499F9 /* User.m in Sources */,
 				DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */,
 				DED6C9CF1C4F3357009F43C9 /* UINavigationController+LSPush.m in Sources */,
+				14FD30FC1C75D73300BF233C /* UIButton+LS.m in Sources */,
 				DE7B5C381C11256A00904476 /* ViewController.m in Sources */,
 				DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */,
 				DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */,
@@ -487,6 +514,7 @@
 				DEEF8D331C3B999A00A499F9 /* YYClassInfo.m in Sources */,
 				DE7B5CA31C112D4100904476 /* UIView+Genie.m in Sources */,
 				DE7B5C981C112D4100904476 /* NSObject+NSJSONSerialization.m in Sources */,
+				14FD30FF1C75D7DD00BF233C /* UILabel+LS.m in Sources */,
 				DE7B5C911C112D4100904476 /* NSDictionary+LSTrim.m in Sources */,
 				DE7B5CA21C112D4100904476 /* UINavigationController+LSSafe.m in Sources */,
 				DE7B5CAB1C112D4100904476 /* LSKeychain.m in Sources */,
