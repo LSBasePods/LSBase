@@ -25,3 +25,5 @@
 #import "UIView+LSBorder.h"
 #import "NSObject+LSTopViewController.h"
 #import "UITableView+LSRegisterCellClass.h"
+#import "UILabel+LS.h"
+#import "UIButton+LS.h"
