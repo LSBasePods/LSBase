@@ -10,24 +10,19 @@
 
 @implementation UIView (LSAutoLayout)
 
-#pragma mark - for self
+#pragma mark - for SubViews
 
 - (void)useAutoLayout
 {
     self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
-- (void)autoCenterInSuperview
-{
-    [self autoAlignInSuperview:LSAutoLayoutAlignCenterX];
-    [self autoAlignInSuperview:LSAutoLayoutAlignCenterY];
-}
-
+#pragma mark Pin Edges to SuperView
 - (void)autoPinEdgesToSuperview
 {
     [self autoPinEdgesToSuperviewWithInsets:UIEdgeInsetsZero];
 }
-//
+
 - (void)autoPinEdgesToSuperviewWithInsets:(UIEdgeInsets)insets
 {
     UIView *superView = self.superview;
@@ -40,6 +35,12 @@
     [superView autoAddConstraintsWithVisualFormatArray:@[H01,V01] options:0 metrics:metrics views:view];
 }
 
+#pragma mark Align in SuperView
+- (void)autoCenterInSuperview
+{
+    [self autoAlignInSuperview:LSAutoLayoutAlignCenterX];
+    [self autoAlignInSuperview:LSAutoLayoutAlignCenterY];
+}
 
 - (void)autoAlignInSuperview:(LSAutoLayoutAlignType)alignType
 {
@@ -53,6 +54,7 @@
     [self autoAlign:alignType relatedView:superview constant:constant];
 }
 
+#pragma mark Align with Related View
 - (void)autoAlign:(LSAutoLayoutAlignType)alignType relatedView:(UIView *)relatedView constant:(CGFloat)constant
 {
     UIView *superview = [self ls_commonSuperviewWithView:relatedView];
@@ -70,6 +72,7 @@
     [superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:attribute1 relatedBy:NSLayoutRelationEqual toItem:relatedView attribute:attribute2 multiplier:1.0f constant:constant]];
 }
 
+#pragma mark Match Size
 - (void)autoMatchSizeType:(LSAutoLayoutSizeType)sizeType1 sizeType2:(LSAutoLayoutSizeType)sizeType2 rate:(CGFloat)rate
 {
     UIView *superview = self.superview;
@@ -84,6 +87,26 @@
     [superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:(NSLayoutAttribute)sizeType1 relatedBy:NSLayoutRelationEqual toItem:relatedView attribute:(NSLayoutAttribute)sizeType2 multiplier:rate constant:constant]];
 }
 
+#pragma mark Set Size
+- (void)autoSetSize:(CGSize)size
+{
+    [self autoSetSizeType:LSAutoLayoutSizeWidth toSize:size.width];
+    [self autoSetSizeType:LSAutoLayoutSizeHeight toSize:size.height];
+}
+
+- (void)autoSetSizeType:(LSAutoLayoutSizeType)sizeType toSize:(CGFloat)size
+{
+    [self autoSetSizeType:sizeType toSize:size relation:NSLayoutRelationEqual];
+}
+
+- (void)autoSetSizeType:(LSAutoLayoutSizeType)sizeType toSize:(CGFloat)size relation:(NSLayoutRelation)relation
+{
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:(NSLayoutAttribute)sizeType relatedBy:relation toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0f constant:size];
+    [self addConstraint:constraint];
+}
+
+#pragma Clear Constraints
 - (void)clearAllConstraints
 {
     [self removeConstraints:self.constraints];
@@ -93,7 +116,7 @@
     }
 }
 
-#pragma mark - for superView
+#pragma mark - for SuperView to Add Constaints with VFL String
 - (void)autoAddConstraintsWithVisualFormatArray:(NSArray *)formatArr options:(NSLayoutFormatOptions)opts metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
     for (NSString *format in formatArr) {
@@ -191,7 +214,7 @@
 }
 
 #pragma mark - Privite
-- (BOOL)isContainsMinimumNumberOfViews:(NSUInteger)minimumNumberOfViews
+- (BOOL)ls_isContainsMinimumNumberOfViews:(NSUInteger)minimumNumberOfViews
 {
     NSUInteger numberOfViews = 0;
     for (id object in self) {

@@ -27,17 +27,13 @@ typedef NS_ENUM(NSInteger, LSAutoLayoutSizeType) {
 
 @interface UIView (LSAutoLayout)
 
-#pragma mark - for self
+#pragma mark - for SubViews
 /**
  启用autolayout
  **/
 - (void)useAutoLayout;
 
-/**
- 相对superView对齐，水平，垂直居中
- **/
-- (void)autoCenterInSuperview;
-
+#pragma mark Pin Edges to SuperView
 /**
  *  全屏加子view
  *
@@ -55,6 +51,12 @@ typedef NS_ENUM(NSInteger, LSAutoLayoutSizeType) {
  */
 - (void)autoPinEdgesToSuperviewWithInsets:(UIEdgeInsets)insets;
 
+#pragma mark Align in SuperView
+/**
+ 相对superView对齐，水平，垂直居中
+ **/
+- (void)autoCenterInSuperview;
+
 /**
  相对superView对齐，根据type
  **/
@@ -64,6 +66,8 @@ typedef NS_ENUM(NSInteger, LSAutoLayoutSizeType) {
  相对superView对齐，根据type, constant
  **/
 - (void)autoAlignInSuperview:(LSAutoLayoutAlignType)alignType constant:(CGFloat)constant;
+
+#pragma mark Align with Related View
 
 /**
  *  相对relatedView对齐，self.alignType = relatedView.alignType + constant
@@ -82,6 +86,7 @@ typedef NS_ENUM(NSInteger, LSAutoLayoutSizeType) {
  */
 - (void)autoAlign:(LSAutoLayoutAlignType)alignType relatedView:(UIView *)relatedView relatedAlign:(LSAutoLayoutAlignType)relatedAlign constant:(CGFloat)constant;
 
+#pragma mark Match Size
 /**
  *  添加宽高比约束 sizeType1 = sizeType2 * rate
  */
@@ -92,12 +97,24 @@ typedef NS_ENUM(NSInteger, LSAutoLayoutSizeType) {
  */
 - (void)autoMatchSizeType:(LSAutoLayoutSizeType)sizeType1 relatedView:(UIView *)relatedView  sizeType2:(LSAutoLayoutSizeType)sizeType2 rate:(CGFloat)rate constant:(CGFloat)constant;
 
+#pragma mark Set Size
+/** 为 view 设置 指定的大小 */
+- (void)autoSetSize:(CGSize)size;
+
+/** 为 view 设置指定的大小 */
+- (void)autoSetSizeType:(LSAutoLayoutSizeType)sizeType toSize:(CGFloat)size;
+
+/** Sets the given dimension of the view to a specific size as a maximum or minimum. */
+/** 为 view 设置指定值 或者 设置最大最小值 */
+- (void)autoSetSizeType:(LSAutoLayoutSizeType)sizeType toSize:(CGFloat)size relation:(NSLayoutRelation)relation;
+
+#pragma Clear Constraints
 /**
  *  清除所有Constraint, 包括subview
  */
 - (void)clearAllConstraints;
 
-#pragma mark - for superView
+#pragma mark - for SuperView to Add Constaints with VFL String
 /**
  *  VFL 方式
  *
