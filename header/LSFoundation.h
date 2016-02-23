@@ -18,6 +18,7 @@
 #import "NSObject+LSDictionaryRepresentation.h"
 #import "NSString+ValidateCheck.h"
 #import "NSObject+NSJSONSerialization.h"
+#import "NSString+LS.h"
 #import "NSString+MD5.h"
 #import "NSString+Sha1.h"
 #import "NSString+TreatAsNSNumber.h"
