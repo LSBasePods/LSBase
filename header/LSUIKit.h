@@ -27,3 +27,4 @@
 #import "UITableView+LSRegisterCellClass.h"
 #import "UILabel+LS.h"
 #import "UIButton+LS.h"
+#import "UIButton+TouchEnlarge.h"
