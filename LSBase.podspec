@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
 
   s.author       = { "Terry Zhang" => "zhangqingyu@gmail.com" }
-  
+
   s.ios.deployment_target = '7.0'
   s.requires_arc = true
 
@@ -38,4 +38,7 @@ Pod::Spec.new do |s|
   s.subspec 'LSUtility' do |ss|
     ss.source_files = 'LSUtility/*.{h,m}'
   end
+
+  s.ios.frameworks = 'CoreSpotlight','MobileCoreServices'
+
 end

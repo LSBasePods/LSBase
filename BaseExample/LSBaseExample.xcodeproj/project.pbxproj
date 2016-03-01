@@ -25,6 +25,8 @@
 		DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */; };
 		DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */; };
 		DE5BCF951C625C14004AFBC5 /* UITableView+indexPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */; };
+		DE7509711C858C7000A50558 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE75096F1C858C7000A50558 /* CoreSpotlight.framework */; };
+		DE7509721C858C7000A50558 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7509701C858C7000A50558 /* MobileCoreServices.framework */; };
 		DE7B5C321C11256A00904476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C311C11256A00904476 /* main.m */; };
 		DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C341C11256A00904476 /* AppDelegate.m */; };
 		DE7B5C381C11256A00904476 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C371C11256A00904476 /* ViewController.m */; };
@@ -102,6 +104,8 @@
 		DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPhoneCallHelper.m; sourceTree = "<group>"; };
 		DE5BCF931C625C14004AFBC5 /* UITableView+indexPathCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+indexPathCell.h"; sourceTree = "<group>"; };
 		DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+indexPathCell.m"; sourceTree = "<group>"; };
+		DE75096F1C858C7000A50558 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		DE7509701C858C7000A50558 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DE7B5C2D1C11256A00904476 /* LSBaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSBaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7B5C311C11256A00904476 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE7B5C331C11256A00904476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7509711C858C7000A50558 /* CoreSpotlight.framework in Frameworks */,
+				DE7509721C858C7000A50558 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +201,8 @@
 		DE7B5C241C11256A00904476 = {
 			isa = PBXGroup;
 			children = (
+				DE75096F1C858C7000A50558 /* CoreSpotlight.framework */,
+				DE7509701C858C7000A50558 /* MobileCoreServices.framework */,
 				DE4F38D71C1139F300D64EF6 /* LSBase.h */,
 				DE7B5CAE1C112DED00904476 /* header */,
 				DE7B5C4D1C112D4100904476 /* LSFoundation */,
