@@ -34,7 +34,7 @@
 		DE7B5C3D1C11256A00904476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7B5C3C1C11256A00904476 /* Assets.xcassets */; };
 		DE7B5C401C11256A00904476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7B5C3E1C11256A00904476 /* LaunchScreen.storyboard */; };
 		DE7B5C901C112D4100904476 /* NSArray+LSSafeObjectAtIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C4F1C112D4100904476 /* NSArray+LSSafeObjectAtIndex.m */; };
-		DE7B5C911C112D4100904476 /* NSDictionary+LSTrim.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C511C112D4100904476 /* NSDictionary+LSTrim.m */; };
+		DE7B5C911C112D4100904476 /* NSDictionary+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C511C112D4100904476 /* NSDictionary+LS.m */; };
 		DE7B5C921C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C531C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.m */; };
 		DE7B5C931C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C551C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.m */; };
 		DE7B5C941C112D4100904476 /* NSNull+LSNonCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C571C112D4100904476 /* NSNull+LSNonCrash.m */; };
@@ -120,8 +120,8 @@
 		DE7B5C411C11256A00904476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE7B5C4E1C112D4100904476 /* NSArray+LSSafeObjectAtIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LSSafeObjectAtIndex.h"; sourceTree = "<group>"; };
 		DE7B5C4F1C112D4100904476 /* NSArray+LSSafeObjectAtIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LSSafeObjectAtIndex.m"; sourceTree = "<group>"; };
-		DE7B5C501C112D4100904476 /* NSDictionary+LSTrim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LSTrim.h"; sourceTree = "<group>"; };
-		DE7B5C511C112D4100904476 /* NSDictionary+LSTrim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LSTrim.m"; sourceTree = "<group>"; };
+		DE7B5C501C112D4100904476 /* NSDictionary+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LS.h"; sourceTree = "<group>"; };
+		DE7B5C511C112D4100904476 /* NSDictionary+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LS.m"; sourceTree = "<group>"; };
 		DE7B5C521C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+LSSafeSetObjectAtIndexed.h"; sourceTree = "<group>"; };
 		DE7B5C531C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+LSSafeSetObjectAtIndexed.m"; sourceTree = "<group>"; };
 		DE7B5C541C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+LSSafeSetObjectForKeyed.h"; sourceTree = "<group>"; };
@@ -252,8 +252,8 @@
 			children = (
 				DE7B5C4E1C112D4100904476 /* NSArray+LSSafeObjectAtIndex.h */,
 				DE7B5C4F1C112D4100904476 /* NSArray+LSSafeObjectAtIndex.m */,
-				DE7B5C501C112D4100904476 /* NSDictionary+LSTrim.h */,
-				DE7B5C511C112D4100904476 /* NSDictionary+LSTrim.m */,
+				DE7B5C501C112D4100904476 /* NSDictionary+LS.h */,
+				DE7B5C511C112D4100904476 /* NSDictionary+LS.m */,
 				DE7B5C521C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.h */,
 				DE7B5C531C112D4100904476 /* NSMutableArray+LSSafeSetObjectAtIndexed.m */,
 				DE7B5C541C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.h */,
@@ -517,7 +517,7 @@
 				DE7B5CA31C112D4100904476 /* UIView+Genie.m in Sources */,
 				DE7B5C981C112D4100904476 /* NSObject+NSJSONSerialization.m in Sources */,
 				14FD30FF1C75D7DD00BF233C /* UILabel+LS.m in Sources */,
-				DE7B5C911C112D4100904476 /* NSDictionary+LSTrim.m in Sources */,
+				DE7B5C911C112D4100904476 /* NSDictionary+LS.m in Sources */,
 				DE7B5CA21C112D4100904476 /* UINavigationController+LSSafe.m in Sources */,
 				DE7B5CAB1C112D4100904476 /* LSKeychain.m in Sources */,
 				14FD30F61C75BE0100BF233C /* NSObject+LSTopViewController.m in Sources */,

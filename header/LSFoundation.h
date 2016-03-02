@@ -8,7 +8,7 @@
 
 
 #import "NSArray+LSSafeObjectAtIndex.h"
-#import "NSDictionary+LSTrim.h"
+#import "NSDictionary+LS.h"
 #import "NSMutableArray+LSSafeSetObjectAtIndexed.h"
 #import "NSMutableDictionary+LSSafeSetObjectForKeyed.h"
 #import "NSNull+LSNonCrash.h"

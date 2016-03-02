@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (LSTrim)
+@interface NSDictionary (LS)
 
 - (id)trim;
+
+- (NSString *)toStringWithSplitString:(NSString *)splitString;
 
 @end

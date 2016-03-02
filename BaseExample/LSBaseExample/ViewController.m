@@ -13,6 +13,7 @@
 #import "PropertyTypeTestObj.h"
 #import "YYClassInfo.h"
 #import "LSAlertController.h"
+#import "NSDictionary+LS.h"
 
 @interface ViewController ()
 
@@ -92,6 +93,9 @@
     [self.view addSubview:actionButton];
     
     [[LSUDIDGenerator sharedInstance] udid];
+    
+    NSDictionary *dic = @{@"a": @1, @"b": @"2"};
+    NSLog(@"%@", [dic toStringWithSplitString:@"&"]);
     
 }
 
