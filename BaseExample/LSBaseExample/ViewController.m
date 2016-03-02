@@ -12,6 +12,7 @@
 #import "LSUDIDGenerator.h"
 #import "PropertyTypeTestObj.h"
 #import "YYClassInfo.h"
+#import "LSAlertController.h"
 
 @interface ViewController ()
 
@@ -49,7 +50,7 @@
     obj.doubleType = 10.1;
     PropertyTypeTestObj *obj2 = [PropertyTypeTestObj modelWithOtherObject:obj];
     NSLog(@"resutl :%f", obj2.doubleType);
-    
+
     //**** Model key Archiever
     NSData *book1Data = [NSKeyedArchiver archivedDataWithRootObject:book1];
     Book *book3 = [NSKeyedUnarchiver unarchiveObjectWithData:book1Data];
@@ -68,26 +69,93 @@
     button.backgroundColor = [UIColor greenColor];
     button.frame = CGRectMake(110, 110, 100, 50);
     button.buttonStyle = LKButtonStyleTopImageBottomText;
-    [button setTitle:@"按按钮" forState:UIControlStateNormal];
+
+    [button setTitle:@"alert" forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"position.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(showAlert) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    [[LSUDIDGenerator sharedInstance] udid];
+    UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    actionButton.backgroundColor = [UIColor redColor];
+    actionButton.frame = CGRectMake(110, 250, 100, 50);
+    actionButton.buttonStyle = LKButtonStyleTopImageBottomText;
+    [actionButton setTitle:@"sheet" forState:UIControlStateNormal];
+    [actionButton setImage:[UIImage imageNamed:@"position.png"] forState:UIControlStateNormal];
+    [actionButton addTarget:self action:@selector(showAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:actionButton];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
-    [label showBorderPosition:LSBorderPositionTop borderColor:[UIColor orangeColor] borderWidth:1.0 contentInsets:UIEdgeInsetsZero];
-    label.backgroundColor =[UIColor grayColor];
-    label.text = @"111111111";
-//    label.contentInsets = UIEdgeInsetsMake(10, 10, 20, 20);
-//    [label showText:@"qeqeqwas" leftPadding:13];
-    [self.view addSubview:label];
-//    [label autoAlignInSuperview:LSAutoLayoutAlignCenterY];
+    [[LSUDIDGenerator sharedInstance] udid];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)okClick
+{
+    NSLog(@"okClick");
+}
+
+- (void)cancelClick
+{
+    NSLog(@"cancelClick");
+}
+
+- (void)otherClick
+{
+    NSLog(@"otherClick");
+}
+
+- (void)showAction
+{
+    LSAlertController *alert = [LSAlertController alertControllerWithTitle:@"提示" message:@"内容" preferredStyle:LSAlertControllerStyleActionSheet];
+    @weakify(self);
+    LSAlertAction *okAction = [LSAlertAction actionWithTitle:@"确认" style:LSAlertActionStyleDestructive handler:^(LSAlertAction *action) {
+        @strongify(self);
+        [self okClick];
+    }];
+    [alert addAction:okAction];
+    
+    LSAlertAction *cancelAction = [LSAlertAction actionWithTitle:@"取消" style:LSAlertActionStyleCancel handler:^(LSAlertAction *action) {
+        @strongify(self);
+        [self cancelClick];
+    }];
+    [alert addAction:cancelAction];
+    
+    LSAlertAction *otherAction = [LSAlertAction actionWithTitle:@"其他" style:LSAlertActionStyleDestructive handler:^(LSAlertAction *action) {
+        @strongify(self);
+        [self otherClick];
+    }];
+    [alert addAction:otherAction];
+    
+    [alert showInController:self];
+}
+
+- (void)showAlert
+{
+    LSAlertController *alert = [LSAlertController alertControllerWithTitle:@"提示" message:@"内容" preferredStyle:LSAlertControllerStyleAlert];
+    @weakify(self);
+    LSAlertAction *okAction = [LSAlertAction actionWithTitle:@"确认" style:LSAlertActionStyleDestructive handler:^(LSAlertAction *action) {
+        @strongify(self);
+        [self okClick];
+    }];
+    [alert addAction:okAction];
+    
+    LSAlertAction *cancelAction = [LSAlertAction actionWithTitle:@"取消" style:LSAlertActionStyleCancel handler:^(LSAlertAction *action) {
+        @strongify(self);
+        [self cancelClick];
+    }];
+    [alert addAction:cancelAction];
+    
+    LSAlertAction *otherAction = [LSAlertAction actionWithTitle:@"其他" style:LSAlertActionStyleDestructive handler:^(LSAlertAction *action) {
+        @strongify(self);
+        [self otherClick];
+    }];
+    [alert addAction:otherAction];
+    
+    [alert showInController:self];
 }
 
 @end

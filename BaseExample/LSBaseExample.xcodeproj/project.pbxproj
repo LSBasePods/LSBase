@@ -10,6 +10,7 @@
 		140F74BD1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */; };
 		149B648E1C722747005272B6 /* UILabel+ContentInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B648D1C722747005272B6 /* UILabel+ContentInset.m */; };
 		149B64911C72C370005272B6 /* UIView+LSBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B64901C72C370005272B6 /* UIView+LSBorder.m */; };
+		14BE76261C8597CD00D7F24D /* LSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE76251C8597CD00D7F24D /* LSAlertController.m */; };
 		14FD30F61C75BE0100BF233C /* NSObject+LSTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */; };
 		14FD30FC1C75D73300BF233C /* UIButton+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FD30FB1C75D73300BF233C /* UIButton+LS.m */; };
 		14FD30FF1C75D7DD00BF233C /* UILabel+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FD30FE1C75D7DD00BF233C /* UILabel+LS.m */; };
@@ -72,6 +73,8 @@
 		149B648D1C722747005272B6 /* UILabel+ContentInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ContentInset.m"; sourceTree = "<group>"; };
 		149B648F1C72C370005272B6 /* UIView+LSBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LSBorder.h"; sourceTree = "<group>"; };
 		149B64901C72C370005272B6 /* UIView+LSBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LSBorder.m"; sourceTree = "<group>"; };
+		14BE76241C8597CD00D7F24D /* LSAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSAlertController.h; sourceTree = "<group>"; };
+		14BE76251C8597CD00D7F24D /* LSAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSAlertController.m; sourceTree = "<group>"; };
 		14FD30F41C75BE0100BF233C /* NSObject+LSTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LSTopViewController.h"; sourceTree = "<group>"; };
 		14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LSTopViewController.m"; sourceTree = "<group>"; };
 		14FD30FA1C75D73300BF233C /* UIButton+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LS.h"; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 				14FD30F51C75BE0100BF233C /* NSObject+LSTopViewController.m */,
 				14FD30FD1C75D7DD00BF233C /* UILabel+LS.h */,
 				14FD30FE1C75D7DD00BF233C /* UILabel+LS.m */,
+				14BE76241C8597CD00D7F24D /* LSAlertController.h */,
+				14BE76251C8597CD00D7F24D /* LSAlertController.m */,
 			);
 			name = LSUIKit;
 			path = ../LSUIKit;
@@ -500,6 +505,7 @@
 				DE7B5CA11C112D4100904476 /* UINavigationBar+LS.m in Sources */,
 				149B648E1C722747005272B6 /* UILabel+ContentInset.m in Sources */,
 				DE7B5C941C112D4100904476 /* NSNull+LSNonCrash.m in Sources */,
+				14BE76261C8597CD00D7F24D /* LSAlertController.m in Sources */,
 				14FDF1DB1C4A1916001A81F9 /* UIViewMapping.m in Sources */,
 				DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */,
 				149B64911C72C370005272B6 /* UIView+LSBorder.m in Sources */,
