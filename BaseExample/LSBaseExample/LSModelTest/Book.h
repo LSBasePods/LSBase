@@ -20,3 +20,9 @@ CREATE_OBJECT_PROPERTY(User, user)
 CREATE_ARRAY_PROPERTY(userList);
 
 @end
+
+@interface EnglishBook : Book
+
+@property (nonatomic, strong) NSString *englishName;
+
+@end

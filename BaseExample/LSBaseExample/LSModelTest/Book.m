@@ -19,3 +19,7 @@
 ARRAY_PROPERTY_SETTER(User, userList, setUserList)
 
 @end
+
+
+@implementation EnglishBook
+@end

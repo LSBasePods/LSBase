@@ -8,6 +8,28 @@
 
 #import "NSObject+LSModel.h"
 #import <objc/runtime.h>
+#import "YYClassInfo.h"
+
+#define force_inline __inline__ __attribute__((always_inline))
+
+/// Whether the type is c number.
+static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
+    switch (type & YYEncodingTypeMask) {
+        case YYEncodingTypeBool:
+        case YYEncodingTypeInt8:
+        case YYEncodingTypeUInt8:
+        case YYEncodingTypeInt16:
+        case YYEncodingTypeUInt16:
+        case YYEncodingTypeInt32:
+        case YYEncodingTypeUInt32:
+        case YYEncodingTypeInt64:
+        case YYEncodingTypeUInt64:
+        case YYEncodingTypeFloat:
+        case YYEncodingTypeDouble:
+        case YYEncodingTypeLongDouble: return YES;
+        default: return NO;
+    }
+}
 
 @implementation NSObject (LSModel)
 
@@ -111,41 +133,51 @@
         discrepantKeys = [([(id<LSModel>)self class]) discrepantKeys];
     }
     
-    NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
-    for (NSString *nativePropertyName in writablePropertyKeyPairs) {
-        
-        NSString *remotePropertyName = discrepantKeys[nativePropertyName] ? discrepantKeys[nativePropertyName] : nativePropertyName;
-        id remotePropertyValue = [dic valueForKey:remotePropertyName];
-        if ([remotePropertyValue isKindOfClass:[NSNull class]]) {
-            continue;
-        }
-        if (remotePropertyValue) {
-            NSString *propertyType = writablePropertyKeyPairs[nativePropertyName];
-            Class class = NSClassFromString(propertyType);
-            
-            if ([class isSubclassOfClass:[NSString class]] || [class isSubclassOfClass:[NSNumber class]]){
-                // JSON基本类型
-                if (class == [NSString class] && ![remotePropertyValue isKindOfClass:class]) {
-                    // 容错 : nativie:NSString ; remote:NSNumber
-                    NSAssert(NO, @"NSString is excepted for %@:%@ while %@ given", [self class], nativePropertyName, [remotePropertyValue class]);
-                    remotePropertyValue = [NSString stringWithFormat:@"%@", remotePropertyValue];
-                } else if (class == [NSNumber class] && ![remotePropertyValue isKindOfClass:class]) {
-                    // 容错 : native:NSNumber ; remote:NSString
-                    NSAssert(NO, @"NSNumber is excepted for %@:%@ while %@ given", [self class], nativePropertyName, [remotePropertyValue class]);
-                    NSNumberFormatter *formatter = [NSNumberFormatter new];
-                    remotePropertyValue = [formatter numberFromString:remotePropertyValue];
+    if (!discrepantKeys && class_getClassMethod([self class], @selector(discrepantKeys))) {
+        discrepantKeys = [([(id<LSModel>)self class]) discrepantKeys];
+    }
+    
+    NSDictionary *writablePropertyInfos = [[self class] _ls_writablePropertiyInfos];
+    for (NSString *nativeKey in writablePropertyInfos) {
+        YYClassPropertyInfo *nativePropertyInfo = writablePropertyInfos[nativeKey];
+        NSString *remoteKey = discrepantKeys[nativeKey] ? : nativeKey;
+        id remoteValue = [dic valueForKey:remoteKey];
+        if (remoteValue) {
+            // 基本类型数字处理
+            if (LSEncodingTypeIsCNumber(nativePropertyInfo.type)) {
+                [self setValue:remoteValue forKey:nativeKey];
+            } else if (nativePropertyInfo.type & YYEncodingTypeObject) {
+                NSString *nativeTypeClassName = [nativePropertyInfo.typeEncoding substringWithRange:NSMakeRange(2, nativePropertyInfo.typeEncoding.length - 3)];
+                Class nativeType = NSClassFromString(nativeTypeClassName);
+                // 类型一致
+                if ([remoteValue isKindOfClass:nativeType]) {
+                    // 类型一致直接赋值
+                    [self setValue:remoteValue forKey:nativeKey];
+                } else {
+                    //类型不一致
+                    if (nativeType == [NSString class] && ![remoteValue isKindOfClass:nativeType]) {
+                        // 容错 : nativie:NSString ; remote:NSNumber
+                        NSAssert(NO, @"NSString is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
+                        remoteValue = [NSString stringWithFormat:@"%@", remoteValue];
+                        [self setValue:remoteValue forKey:nativeKey];
+                    } else if (nativeType == [NSNumber class] && ![remoteValue isKindOfClass:nativeType]) {
+                        // 容错 : native:NSNumber ; remote:NSString
+                        NSAssert(NO, @"NSNumber is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
+                        NSNumberFormatter *formatter = [NSNumberFormatter new];
+                        remoteValue = [formatter numberFromString:remoteKey];
+                        [self setValue:remoteValue forKey:nativeKey];
+                    } else if ([remoteValue isKindOfClass:[NSDictionary class]]){
+                        //  转为其他model
+                        remoteValue = [nativeType modelWithDictionary:remoteValue];
+                        [self setValue:remoteValue forKey:nativeKey];
+                    } else {
+                        // 暂时无法处理
+                        if (nativeType) {
+                            NSAssert(NO, @"Diff Class in Model:%@ ! Native type:%@ name:%@ ,Remote type:%@", [self class], nativeType, nativeKey, [remoteValue class]);
+                        }
+                    }
                 }
-            } else if ([propertyType isEqualToString:@"BOOL"]) {
-                // 转为BOOL类型
-                remotePropertyValue = @([remotePropertyValue boolValue]);
-            } else if ([class isSubclassOfClass:[NSArray class]]) {
-                //  TODO 转为数组
-            } else {
-                //  转为其他model
-                remotePropertyValue = [class modelWithDictionary:remotePropertyValue];
             }
-            
-            [self setValue:remotePropertyValue forKey:nativePropertyName];
         }
     }
     
@@ -162,45 +194,50 @@
     if (!discrepantKeys && class_getClassMethod([self class], @selector(discrepantKeys))) {
         discrepantKeys = [([(id<LSModel>)self class]) discrepantKeys];
     }
-
-    NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
-    for (NSString *nativePropertyName in writablePropertyKeyPairs) {
-        
-        NSString *remotePropertyName = discrepantKeys[nativePropertyName] ? discrepantKeys[nativePropertyName] : nativePropertyName;
-        id remotePropertyValue = [object valueForKey:remotePropertyName];
-        if ([remotePropertyValue isKindOfClass:[NSNull class]]) {
-            continue;
-        }
-        if (remotePropertyValue) {
-            NSString *propertyType = writablePropertyKeyPairs[nativePropertyName];
-            Class class = NSClassFromString(propertyType);
-            
-            if ([class isSubclassOfClass:[NSString class]] || [class isSubclassOfClass:[NSNumber class]]){
-                // JSON基本类型
-                if (class == [NSString class] && ![remotePropertyValue isKindOfClass:class]) {
-                    // 容错 : nativie:NSString ; remote:NSNumber
-                    NSAssert(NO, @"NSString is excepted for %@:%@ while %@ given", [self class], nativePropertyName, [remotePropertyValue class]);
-                    remotePropertyValue = [NSString stringWithFormat:@"%@", remotePropertyValue];
-                } else if (class == [NSNumber class] && ![remotePropertyValue isKindOfClass:class]) {
-                    // 容错 : native:NSNumber ; remote:NSString
-                    NSAssert(NO, @"NSNumber is excepted for %@:%@ while %@ given", [self class], nativePropertyName, [remotePropertyValue class]);
-                    NSNumberFormatter *formatter = [NSNumberFormatter new];
-                    remotePropertyValue = [formatter numberFromString:remotePropertyValue];
+    
+    NSDictionary *writablePropertyInfos = [[self class] _ls_writablePropertiyInfos];
+    for (NSString *nativeKey in writablePropertyInfos) {
+        YYClassPropertyInfo *nativePropertyInfo = writablePropertyInfos[nativeKey];
+        NSString *remoteKey = discrepantKeys[nativeKey] ? : nativeKey;
+        id remoteValue = [object valueForKey:remoteKey];
+        if (remoteValue) {
+            // 基本类型数字处理
+            if (LSEncodingTypeIsCNumber(nativePropertyInfo.type)) {
+                [self setValue:remoteValue forKey:nativeKey];
+            } else if (nativePropertyInfo.type & YYEncodingTypeObject) {
+                NSString *nativeTypeClassName = [nativePropertyInfo.typeEncoding substringWithRange:NSMakeRange(2, nativePropertyInfo.typeEncoding.length - 3)];
+                Class nativeType = NSClassFromString(nativeTypeClassName);
+                // 类型一致
+                if ([remoteValue isKindOfClass:nativeType]) {
+                    // 类型一致直接赋值, 数组类型需要重写 setter方法
+                    [self setValue:remoteValue forKey:nativeKey];
+                } else {
+                    //类型不一致
+                    if (nativeType == [NSString class] && ![remoteValue isKindOfClass:nativeType]) {
+                        // 容错 : nativie:NSString ; remote:NSNumber
+                        NSAssert(NO, @"NSString is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
+                        remoteValue = [NSString stringWithFormat:@"%@", remoteValue];
+                        [self setValue:remoteValue forKey:nativeKey];
+                    } else if (nativeType == [NSNumber class] && ![remoteValue isKindOfClass:nativeType]) {
+                        // 容错 : native:NSNumber ; remote:NSString
+                        NSAssert(NO, @"NSNumber is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
+                        NSNumberFormatter *formatter = [NSNumberFormatter new];
+                        remoteValue = [formatter numberFromString:remoteKey];
+                        [self setValue:remoteValue forKey:nativeKey];
+                    } else if ([remoteValue isKindOfClass:[NSDictionary class]]){
+                        //  转为其他model
+                        remoteValue = [nativeType modelWithDictionary:remoteValue];
+                        [self setValue:remoteValue forKey:nativeKey];
+                    } else {
+                        // 暂时无法处理
+                        if (nativeType) {
+                            NSAssert(NO, @"Diff Class in Model:%@ ! Native type:%@ name:%@ ,Remote type:%@", [self class], nativeType, nativeKey, [remoteValue class]);
+                        }
+                    }
                 }
-            } else if ([propertyType isEqualToString:@"BOOL"]) {
-                // 转为BOOL类型
-                remotePropertyValue = @([remotePropertyValue boolValue]);
-            } else if ([class isSubclassOfClass:[NSArray class]]) {
-                //  TODO 转为数组
-            } else {
-                //  转为其他model
-                remotePropertyValue = [class modelWithOtherObject:remotePropertyValue];
             }
-            
-            [self setValue:remotePropertyValue forKey:nativePropertyName];
         }
     }
-    
     return YES;
 }
 
@@ -283,6 +320,35 @@
         if (![dic isKindOfClass:[NSDictionary class]]) dic = nil;
     }
     return dic;
+}
+
++ (NSMutableDictionary *)_ls_writablePropertiyInfos{
+    NSMutableDictionary *keyPairs = [NSMutableDictionary dictionary];
+    
+    YYClassInfo *classInfo = [YYClassInfo classInfoWithClass:[self class]];
+    [self addWritablePropertiesFromDictionary:classInfo.propertyInfos toDictionary:keyPairs];
+    
+    BOOL stop = NO;
+    YYClassInfo *superClassInfo = classInfo.superClassInfo;
+    while (!stop && [superClassInfo.cls isSubclassOfClass:[NSObject class]]) {
+        [self addWritablePropertiesFromDictionary:superClassInfo.propertyInfos toDictionary:keyPairs];
+        stop = superClassInfo.cls == [NSObject class];
+        superClassInfo = superClassInfo.superClassInfo;
+    }
+
+    return keyPairs;
+}
+
++ (void)addWritablePropertiesFromDictionary:(NSDictionary *)dictionary toDictionary:(NSMutableDictionary *)mutableDictionary
+{
+    for (NSString *key in [dictionary allKeys]) {
+        YYClassPropertyInfo *propertyInfo = dictionary[key];
+        if ([propertyInfo isKindOfClass:[YYClassPropertyInfo class]]) {
+            if (!(propertyInfo.type & YYEncodingTypePropertyReadonly)) {
+                [mutableDictionary setValue:propertyInfo forKey:key];
+            }
+        }
+    }
 }
 
 + (NSMutableDictionary *)_ls_writablePropertyKeys {
