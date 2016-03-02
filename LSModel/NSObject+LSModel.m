@@ -277,10 +277,23 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
         return;
     }
     
-    NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
-    for (NSString *propertyName in writablePropertyKeyPairs) {
+    NSDictionary *writablePropertiyInfos = [[self class] _ls_writablePropertiyInfos];
+    NSLog(@"%@",writablePropertiyInfos);
+    for (NSString *propertyName in writablePropertiyInfos.allKeys) {
+        YYClassPropertyInfo *propertyInfo = writablePropertiyInfos[propertyName];
+        if (propertyInfo.type & YYEncodingTypeObject) {
+            if (propertyInfo.typeEncoding.length < 3) {
+                continue;
+            }
+            NSString *nativeTypeClassName = [propertyInfo.typeEncoding substringWithRange:NSMakeRange(2, propertyInfo.typeEncoding.length - 3)];
+            Class nativeType = NSClassFromString(nativeTypeClassName);
+            if (!nativeType || !propertyName) {
+                continue;
+            }
+        }
         id propertyValue = [self valueForKey:propertyName];
         if (propertyValue) {
+            NSLog(@"key:%@ value:%@", propertyName, propertyValue);
             [aCoder encodeObject:propertyValue forKey:[self _ls_codingKeyWithPropertyName:propertyName]];
         }
     };
@@ -294,10 +307,12 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
         return self;
     }
     
-    NSDictionary *writablePropertyKeyPairs = [[self class] _ls_writablePropertyKeys];
-    for (NSString *propertyName in writablePropertyKeyPairs) {
+    NSDictionary *writablePropertiyInfos = [[self class] _ls_writablePropertiyInfos];
+    for (NSString *propertyName in writablePropertiyInfos.allKeys) {
         id propertyValue = [aDecoder decodeObjectForKey:[self _ls_codingKeyWithPropertyName:propertyName]];
-        [self setValue:propertyValue forKey:propertyName];
+        if (propertyValue) {
+            [self setValue:propertyValue forKey:propertyName];
+        }
     };
     return self;
 }
@@ -326,12 +341,12 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
     NSMutableDictionary *keyPairs = [NSMutableDictionary dictionary];
     
     YYClassInfo *classInfo = [YYClassInfo classInfoWithClass:[self class]];
-    [self addWritablePropertiesFromDictionary:classInfo.propertyInfos toDictionary:keyPairs];
+    [self _ls_addWritablePropertiesFromDictionary:classInfo.propertyInfos toDictionary:keyPairs];
     
     BOOL stop = NO;
     YYClassInfo *superClassInfo = classInfo.superClassInfo;
-    while (!stop && [superClassInfo.cls isSubclassOfClass:[NSObject class]]) {
-        [self addWritablePropertiesFromDictionary:superClassInfo.propertyInfos toDictionary:keyPairs];
+    while (!stop && [superClassInfo.cls isSubclassOfClass:[NSObject class]] /*&& superClassInfo.cls != [NSObject class]*/) {
+        [self _ls_addWritablePropertiesFromDictionary:superClassInfo.propertyInfos toDictionary:keyPairs];
         stop = superClassInfo.cls == [NSObject class];
         superClassInfo = superClassInfo.superClassInfo;
     }
@@ -339,7 +354,7 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
     return keyPairs;
 }
 
-+ (void)addWritablePropertiesFromDictionary:(NSDictionary *)dictionary toDictionary:(NSMutableDictionary *)mutableDictionary
++ (void)_ls_addWritablePropertiesFromDictionary:(NSDictionary *)dictionary toDictionary:(NSMutableDictionary *)mutableDictionary
 {
     for (NSString *key in [dictionary allKeys]) {
         YYClassPropertyInfo *propertyInfo = dictionary[key];
@@ -348,61 +363,6 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
                 [mutableDictionary setValue:propertyInfo forKey:key];
             }
         }
-    }
-}
-
-+ (NSMutableDictionary *)_ls_writablePropertyKeys {
-    NSMutableDictionary *keyPairs = [NSMutableDictionary dictionary];
-    [self _ls_enumeratePropertiesUsingBlock:^(objc_property_t property, BOOL *stop) {
-        const char *propertyAttributes = property_getAttributes(property);
-        NSArray *attributes = [[NSString stringWithUTF8String:propertyAttributes] componentsSeparatedByString:@","];
-        if (![attributes containsObject:@"R"]) {
-            NSString *key = @(property_getName(property));
-            
-            NSString * typeAttribute = [attributes objectAtIndex:0];
-            NSString * propertyType = [typeAttribute substringFromIndex:1];
-            const char * rawPropertyType = [propertyType UTF8String];
-            
-            NSString *classString = nil;
-            if ([typeAttribute hasPrefix:@"T@"]) {
-                if (typeAttribute.length <= 4) {
-                    return;
-                }
-                NSString * typeClassName = [typeAttribute substringWithRange:NSMakeRange(3, [typeAttribute length]-4)];
-                Class typeClass = NSClassFromString(typeClassName);
-                if (typeClass) {
-                    classString = typeClassName;
-                }
-            } else if (!strcmp(rawPropertyType, @encode(BOOL))) {
-                classString = @"BOOL";
-            } else {
-                NSAssert5(NO, @"LSModel的子类的读写属性只支持以下几种类型：%@，%@，%@，%@，%@", @"NSString", @"NSNumber", @"BOOL", @"LSModel的子类", @"LSModel的子类的数组");
-            }
-            [keyPairs setObject:classString forKey:key];
-        }
-    }];
-    
-    return keyPairs;
-}
-
-+ (void)_ls_enumeratePropertiesUsingBlock:(void (^)(objc_property_t property, BOOL *stop))block
-{
-    Class cls = self;
-    BOOL stop = NO;
-    
-    while (!stop && [cls isSubclassOfClass:[NSObject class]] && cls != [NSObject class]) {
-        unsigned count = 0;
-        objc_property_t *properties = class_copyPropertyList(cls, &count);
-        
-        cls = cls.superclass;
-        if (properties == NULL) continue;
-        for (unsigned i = 0; i < count; i++) {
-            block(properties[i], &stop);
-            if (stop) {
-                break;
-            }
-        }
-        free(properties);
     }
 }
 
