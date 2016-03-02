@@ -269,6 +269,38 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
     return self;
 }
 
+- (NSDictionary *)convertToJSONDic
+{
+    return [NSDictionary modelJSONDictionaryWithModel:self];
+}
+
+- (NSData *)convertToJSONData
+{
+    NSDictionary *jsonDic = [self convertToJSONDic];
+    NSError *error = nil;
+    //NSJSONWritingPrettyPrinted:指定生成的JSON数据应使用空格旨在使输出更加可读。如果这个选项是没有设置,最紧凑的可能生成JSON表示。
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDic options:NSJSONWritingPrettyPrinted error:&error];
+    if ([jsonData length] > 0 && error == nil){
+//        NSLog(@"Successfully serialized the dictionary into data.");
+    }
+    else if ([jsonData length] == 0 &&
+             error == nil){
+        NSLog(@"No data was returned after serialization.");
+    }
+    else if (error != nil){
+        NSLog(@"An error happened = %@", error);
+    }
+    
+    return jsonData;
+}
+
+- (NSString *)convertToJSONStr
+{
+    //NSData转换为String
+    return [[NSString alloc] initWithData:[self convertToJSONData] encoding:NSUTF8StringEncoding];
+}
+
+
 #pragma mark - Private Methods
 
 + (NSDictionary *)_ls_dictionaryWithJSON:(id)json {

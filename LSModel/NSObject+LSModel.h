@@ -52,6 +52,11 @@
 - (void)modelEncodeWithCoder:(NSCoder *)aCoder;
 - (id)modelInitWithCoder:(NSCoder *)aDecoder;
 
+# pragma mark Convert to Other Struct
+- (NSDictionary *)convertToJSONDic;
+- (NSData *)convertToJSONData;
+- (NSString *)convertToJSONStr;
+
 @end
 
 @interface NSArray (LSModel)

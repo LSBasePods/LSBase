@@ -64,6 +64,8 @@
     NSLog(@"book4's userList:%@",book4.userList);
     
     NSLog(@"lalallalala %@",[NSDictionary modelJSONDictionaryWithModel:book4]);
+    
+    NSLog(@"hehheheheheh %@", [book4 convertToJSONStr]);
 
     
     //**** View Mapping
