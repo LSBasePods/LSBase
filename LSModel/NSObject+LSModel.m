@@ -191,54 +191,8 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
 
 - (BOOL)modelSetWithOtherObject:(id)object discrepantKeys:(NSDictionary *)discrepantKeys
 {
-    if (!discrepantKeys && class_getClassMethod([self class], @selector(discrepantKeys))) {
-        discrepantKeys = [([(id<LSModel>)self class]) discrepantKeys];
-    }
-    
-    NSDictionary *writablePropertyInfos = [[self class] _ls_writablePropertiyInfos];
-    for (NSString *nativeKey in writablePropertyInfos) {
-        YYClassPropertyInfo *nativePropertyInfo = writablePropertyInfos[nativeKey];
-        NSString *remoteKey = discrepantKeys[nativeKey] ? : nativeKey;
-        id remoteValue = [object valueForKey:remoteKey];
-        if (remoteValue) {
-            // 基本类型数字处理
-            if (LSEncodingTypeIsCNumber(nativePropertyInfo.type)) {
-                [self setValue:remoteValue forKey:nativeKey];
-            } else if (nativePropertyInfo.type & YYEncodingTypeObject) {
-                NSString *nativeTypeClassName = [nativePropertyInfo.typeEncoding substringWithRange:NSMakeRange(2, nativePropertyInfo.typeEncoding.length - 3)];
-                Class nativeType = NSClassFromString(nativeTypeClassName);
-                // 类型一致
-                if ([remoteValue isKindOfClass:nativeType]) {
-                    // 类型一致直接赋值, 数组类型需要重写 setter方法
-                    [self setValue:remoteValue forKey:nativeKey];
-                } else {
-                    //类型不一致
-                    if (nativeType == [NSString class] && ![remoteValue isKindOfClass:nativeType]) {
-                        // 容错 : nativie:NSString ; remote:NSNumber
-                        NSAssert(NO, @"NSString is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
-                        remoteValue = [NSString stringWithFormat:@"%@", remoteValue];
-                        [self setValue:remoteValue forKey:nativeKey];
-                    } else if (nativeType == [NSNumber class] && ![remoteValue isKindOfClass:nativeType]) {
-                        // 容错 : native:NSNumber ; remote:NSString
-                        NSAssert(NO, @"NSNumber is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
-                        NSNumberFormatter *formatter = [NSNumberFormatter new];
-                        remoteValue = [formatter numberFromString:remoteKey];
-                        [self setValue:remoteValue forKey:nativeKey];
-                    } else if ([remoteValue isKindOfClass:[NSDictionary class]]){
-                        //  转为其他model
-                        remoteValue = [nativeType modelWithDictionary:remoteValue];
-                        [self setValue:remoteValue forKey:nativeKey];
-                    } else {
-                        // 暂时无法处理
-                        if (nativeType) {
-                            NSAssert(NO, @"Diff Class in Model:%@ ! Native type:%@ name:%@ ,Remote type:%@", [self class], nativeType, nativeKey, [remoteValue class]);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return YES;
+    NSDictionary *dic = [NSDictionary modelJSONDictionaryWithModel:object];
+    return [self modelSetWithDictionary:dic discrepantKeys:discrepantKeys];
 }
 
 # pragma mark  - NSCoding 
@@ -278,7 +232,6 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
     }
     
     NSDictionary *writablePropertiyInfos = [[self class] _ls_writablePropertiyInfos];
-    NSLog(@"%@",writablePropertiyInfos);
     for (NSString *propertyName in writablePropertiyInfos.allKeys) {
         YYClassPropertyInfo *propertyInfo = writablePropertiyInfos[propertyName];
         if (propertyInfo.type & YYEncodingTypeObject) {
@@ -293,7 +246,6 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
         }
         id propertyValue = [self valueForKey:propertyName];
         if (propertyValue) {
-            NSLog(@"key:%@ value:%@", propertyName, propertyValue);
             [aCoder encodeObject:propertyValue forKey:[self _ls_codingKeyWithPropertyName:propertyName]];
         }
     };
@@ -394,6 +346,66 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
     }
     
     return objects;
+}
+
+@end
+
+@implementation NSDictionary (LSModel)
+
++ (NSDictionary *)modelJSONDictionaryWithModel:(id)model;
+{
+    if ([model class] == [NSObject class]) {
+        return nil;
+    }
+    
+    NSMutableDictionary *modelDic = [NSMutableDictionary dictionary];
+    YYClassInfo *classInfo = [YYClassInfo classInfoWithClass:[model class]];
+    // 获取所有属性
+    NSMutableDictionary *propertyInfos = [classInfo.propertyInfos mutableCopy];
+    YYClassInfo *superClassInfo = classInfo.superClassInfo ;
+    while (superClassInfo.cls != [NSObject class]) {
+        [propertyInfos addEntriesFromDictionary:superClassInfo.propertyInfos];
+        superClassInfo = superClassInfo.superClassInfo;
+    }
+    
+    for (NSString *key in propertyInfos.allKeys) {
+        if ([key isEqualToString:@"debugDescription"] ||
+            [key isEqualToString:@"description"]||
+            [key isEqualToString:@"hash"]) {
+            continue;
+        }
+        YYClassPropertyInfo *propertyInfo = propertyInfos[key];
+        id remoteValue = [model valueForKey:key];
+        if (!remoteValue) {
+            continue;
+        }
+        if (LSEncodingTypeIsCNumber(propertyInfo.type) || [remoteValue isKindOfClass:[NSString class]] || [remoteValue isKindOfClass:[NSNumber class]]) {
+            [modelDic setValue:remoteValue forKey:key];
+        } else if (propertyInfo.type & YYEncodingTypeObject){
+            // 子属性的
+            if (propertyInfo.typeEncoding.length < 3) {
+                continue;
+            }
+            NSString *className = [propertyInfo.typeEncoding substringWithRange:NSMakeRange(2, propertyInfo.typeEncoding.length - 3)];
+            Class class = NSClassFromString(className);
+            if ([class isSubclassOfClass:[NSArray class]]) {
+                NSMutableArray *dicArray = [NSMutableArray array];
+                for (NSObject *itemModel in (NSArray *)remoteValue) {
+                    [dicArray addObject:[NSDictionary modelJSONDictionaryWithModel:itemModel]];
+                }
+                if (remoteValue) {
+                    [modelDic setValue:[dicArray copy] forKey:key];
+                }
+            } else {
+                NSDictionary *subDic = [NSDictionary modelJSONDictionaryWithModel:remoteValue];
+                if (class && class != [NSObject class] && subDic.allKeys.count) {
+                    [modelDic setValue:subDic forKey:key];
+                }
+            }
+        }
+    }
+    
+    return [modelDic copy];
 }
 
 @end

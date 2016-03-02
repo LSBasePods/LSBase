@@ -40,7 +40,7 @@
     NSLog(@"book2's user name : %@", book2.user.name);
     
     // 父类属性
-    EnglishBook *englishBook = [EnglishBook new];
+    EnglishBook *englishBook = [EnglishBook modelWithOtherObject:book1];
     englishBook.name =@"111";
     englishBook.englishName = @"one one one";
     EnglishBook *english2 = [EnglishBook modelWithOtherObject:englishBook];
@@ -55,11 +55,16 @@
     NSData *book1Data = [NSKeyedArchiver archivedDataWithRootObject:book1];
     Book *book3 = [NSKeyedUnarchiver unarchiveObjectWithData:book1Data];
     NSLog(@"book3's user name : %@", book3.user.name);
+    
+    NSLog(@"lalallalala %@",[NSDictionary modelJSONDictionaryWithModel:english2]);
 
     //**** Model with Array Property from JSON
     NSString *model4Json = @"{\"name\": \"Harry Potter\",\"read\": 1, \"pages\": 256, \"user\": {\"name\": \"J.K.Rowling\", \"birthday\": \"1965-07-31\" },\"userList\":[{\"name\": \"Zhang San\", \"birthday\": \"1965-07-31\" },{\"name\": \"Lee Si\", \"birthday\": \"1965-07-31\" }]}";
     Book *book4 = [Book modelWithJSON:model4Json];
     NSLog(@"book4's userList:%@",book4.userList);
+    
+    NSLog(@"lalallalala %@",[NSDictionary modelJSONDictionaryWithModel:book4]);
+
     
     //**** View Mapping
     UIView *view = [UIView new];

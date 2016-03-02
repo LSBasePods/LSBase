@@ -60,3 +60,16 @@
 + (NSArray *)modelArrayWithClass:(Class)cls dataSource:(NSArray *)data discrepantKeys:(NSDictionary *)discrepantKeys;
 
 @end
+
+@interface NSDictionary (LSModel)
+
+/**
+ Creates and returns a dictionary from a json.
+ This method is thread-safe.
+ 
+ @param cls  The value instance's class in dictionary.
+ 
+ @return A array, or nil if an error occurs.
+ */
++ (NSDictionary *)modelJSONDictionaryWithModel:(NSObject *)model;
+@end
