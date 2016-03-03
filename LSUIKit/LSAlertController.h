@@ -33,20 +33,44 @@ typedef NS_ENUM(NSInteger, LSAlertControllerStyle) {
 
 @interface LSAlertController : NSObject
 
-@property (nonatomic, readonly) NSArray<LSAlertAction *> *actions;
-@property (nonatomic, readonly) NSArray<UITextField *> *textFields;
-
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
 
 @property (nonatomic, readonly) LSAlertControllerStyle preferredStyle;
 
+/**
+ *  显示提示信息
+ *  @param  title           标题
+ *  @param  message         内容
+ *  @param  buttonTitle     按钮标题
+ *  @param  controller      显示页面
+ */
++ (void)showNoticeAlertWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle inController:(UIViewController *)controller;
+
+/**
+ *  初始化弹出框
+ *  @param  title               标题
+ *  @param  message             内容
+ *  @param  preferredStyle      UI样式
+ */
 + (id)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(LSAlertControllerStyle)preferredStyle;
 
+/**
+ *  添加按钮
+ *  @param  alertAction               按钮
+ */
 - (void)addAction:(LSAlertAction *)alertAction;
 
-- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler;
+/**
+ *  添加输入框，只在iOS8.0之后有效
+ *  @param  configurationHandler               回调
+ */
+- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler NS_AVAILABLE_IOS(8_0);
 
+/**
+ *  显示弹出框
+ *  @param  controller               显示页面
+ */
 - (void)showInController:(UIViewController *)controller;
 
 @end

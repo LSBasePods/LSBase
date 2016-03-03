@@ -55,6 +55,14 @@
     return instance;
 }
 
++ (void)showNoticeAlertWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle inController:(UIViewController *)controller
+{
+    LSAlertController *alertController = [LSAlertController alertControllerWithTitle:title message:message preferredStyle:LSAlertControllerStyleAlert];
+    LSAlertAction *okAction = [LSAlertAction actionWithTitle:buttonTitle style:LSAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    [alertController showInController:controller];
+}
+
 + (id)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(LSAlertControllerStyle)preferredStyle
 {
     LSAlertController *alert = [self sharedInstance];
