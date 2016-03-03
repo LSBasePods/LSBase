@@ -13,4 +13,11 @@
 
 - (void)lsPushViewController:(UIViewController *)viewController animated:(BOOL)animated;
 
+/**
+ *  回退index页面
+ *  @param  index 回退几个页面
+ *  @param  animated 是否显示动效
+ */
+- (void)lsPopToViewControllerForIndex:(NSInteger)index animated:(BOOL)animated;
+
 @end
