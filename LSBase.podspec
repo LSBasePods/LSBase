@@ -39,6 +39,6 @@ Pod::Spec.new do |s|
     ss.source_files = 'LSUtility/*.{h,m}'
   end
 
-  s.ios.frameworks = 'CoreSpotlight','MobileCoreServices'
+  s.ios.weak_framework = 'CoreSpotlight','MobileCoreServices'
 
 end
