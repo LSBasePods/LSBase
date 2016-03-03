@@ -140,8 +140,11 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
     NSDictionary *writablePropertyInfos = [[self class] _ls_writablePropertiyInfos];
     for (NSString *nativeKey in writablePropertyInfos) {
         YYClassPropertyInfo *nativePropertyInfo = writablePropertyInfos[nativeKey];
-        NSString *remoteKey = discrepantKeys[nativeKey] ? : nativeKey;
-        id remoteValue = [dic valueForKey:remoteKey];
+        id remoteValue = [dic valueForKey:nativeKey];
+        if (!remoteValue) {
+            NSString *remoteKey = discrepantKeys[nativeKey] ? : nativeKey;
+            remoteValue = [dic valueForKey:remoteKey];
+        }
         if ([remoteValue isEqual:[NSNull null]]) {
             continue;
         }
@@ -167,7 +170,7 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
                         // 容错 : native:NSNumber ; remote:NSString
                         NSAssert(NO, @"NSNumber is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
                         NSNumberFormatter *formatter = [NSNumberFormatter new];
-                        remoteValue = [formatter numberFromString:remoteKey];
+                        remoteValue = [formatter numberFromString:remoteValue];
                         [self setValue:remoteValue forKey:nativeKey];
                     } else if ([remoteValue isKindOfClass:[NSDictionary class]]){
                         //  转为其他model
