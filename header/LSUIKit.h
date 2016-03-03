@@ -28,3 +28,4 @@
 #import "UILabel+LS.h"
 #import "UIButton+LS.h"
 #import "UIButton+TouchEnlarge.h"
+#import "LSAlertController.h"
