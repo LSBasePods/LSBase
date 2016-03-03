@@ -142,6 +142,9 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
         YYClassPropertyInfo *nativePropertyInfo = writablePropertyInfos[nativeKey];
         NSString *remoteKey = discrepantKeys[nativeKey] ? : nativeKey;
         id remoteValue = [dic valueForKey:remoteKey];
+        if ([remoteValue isEqual:[NSNull null]]) {
+            continue;
+        }
         if (remoteValue) {
             // 基本类型数字处理
             if (LSEncodingTypeIsCNumber(nativePropertyInfo.type)) {
