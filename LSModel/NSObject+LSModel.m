@@ -179,7 +179,15 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
                     } else {
                         // 暂时无法处理
                         if (nativeType) {
-                            NSAssert(NO, @"Diff Class in Model:%@ ! Native type:%@ name:%@ ,Remote type:%@", [self class], nativeType, nativeKey, [remoteValue class]);
+                            NSLog(@"Diff Class in Model:%@ ! Native type:%@ name:%@ ,Remote type:%@", [self class], nativeType, nativeKey, [remoteValue class]);
+                        } else {
+                            if ([nativeTypeClassName hasPrefix:@"<"] && [nativeTypeClassName hasSuffix:@">"]) {
+                                NSString *nativeDelegateProtocolName = [nativeTypeClassName substringWithRange:NSMakeRange(1, nativeTypeClassName.length - 2)];
+                                Protocol *nativeDelegateProtocol = NSProtocolFromString(nativeDelegateProtocolName);
+                                if ([remoteValue conformsToProtocol:nativeDelegateProtocol]) {
+                                    [self setValue:remoteValue forKey:nativeKey];
+                                }
+                            }
                         }
                     }
                 }
@@ -206,7 +214,7 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 + (BOOL)resolveInstanceMethod:(SEL)sel{
-        
+    
     if (self == [NSObject class]) {
         return NO;
     }
