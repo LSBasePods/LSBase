@@ -163,12 +163,12 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
                     //类型不一致
                     if (nativeType == [NSString class] && ![remoteValue isKindOfClass:nativeType]) {
                         // 容错 : nativie:NSString ; remote:NSNumber
-                        NSAssert(NO, @"NSString is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
+                        NSLog(@"NSString is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
                         remoteValue = [NSString stringWithFormat:@"%@", remoteValue];
                         [self setValue:remoteValue forKey:nativeKey];
                     } else if (nativeType == [NSNumber class] && ![remoteValue isKindOfClass:nativeType]) {
                         // 容错 : native:NSNumber ; remote:NSString
-                        NSAssert(NO, @"NSNumber is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
+                        NSLog(@"NSNumber is excepted for %@:%@ while %@ given", [self class], nativeKey, [remoteValue class]);
                         NSNumberFormatter *formatter = [NSNumberFormatter new];
                         remoteValue = [formatter numberFromString:remoteValue];
                         [self setValue:remoteValue forKey:nativeKey];
