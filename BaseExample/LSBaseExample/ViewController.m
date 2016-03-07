@@ -101,7 +101,7 @@
     
     UILabel *countDownLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 300, 200, 30)];
     [self.view addSubview:countDownLabel];
-    [countDownLabel countDownSetStartNumber:10000 endNumber:10 interval:1 countDownHandler:^(UILabel *label, NSInteger currentNumber, BOOL stopped) {
+    [countDownLabel countDownSetStartNumber:5 endNumber:1 interval:1 countDownHandler:^(UILabel *label, NSInteger currentNumber, BOOL stopped) {
         if (stopped) {
             NSLog(@"stopped");
             label.backgroundColor = [UIColor grayColor];

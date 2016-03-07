@@ -49,6 +49,11 @@ const NSString *kLSCountDownLabel_timer = @"kLSCountDownLabel_timer";
         return;
     }
     
+    if (!self.countDownTimer) {
+        self.countDownTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(lsCountDown)];
+        self.countDownTimer.frameInterval = 60.;
+    }
+    
     [self.countDownTimer addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
 }
 
@@ -136,12 +141,7 @@ const NSString *kLSCountDownLabel_timer = @"kLSCountDownLabel_timer";
 
 - (CADisplayLink *)countDownTimer
 {
-    CADisplayLink *countDownTimer = [self getAssociatedValueForKey:(__bridge void *)kLSCountDownLabel_timer];
-    if (!countDownTimer) {
-        countDownTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(lsCountDown)];
-        countDownTimer.frameInterval = 60.;
-    }
-    return countDownTimer;
+    return [self getAssociatedValueForKey:(__bridge void *)kLSCountDownLabel_timer];
 }
 
 - (void)setCountDownTimer:(CADisplayLink *)countDownTimer
