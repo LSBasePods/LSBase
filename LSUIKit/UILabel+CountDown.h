@@ -12,6 +12,8 @@ typedef void (^LSLabelCountDownHandler)(UILabel *label, NSInteger currentNumber,
 
 @interface UILabel (CountDown)
 
+@property (nonatomic, strong, readonly) CADisplayLink *countDownTimer;  //frameInterval，设置刷新频率，默认为60，每秒刷新一次
+
 - (void)countDownSetStartNumber:(NSInteger)startNumber endNumber:(NSInteger)endNumber interval:(NSUInteger)interval countDownHandler:(LSLabelCountDownHandler)handler;
 
 - (void)countDownStart;

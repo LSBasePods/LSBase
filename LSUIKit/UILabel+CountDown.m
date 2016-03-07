@@ -20,7 +20,6 @@ const NSString *kLSCountDownLabel_timer = @"kLSCountDownLabel_timer";
 
 @property (nonatomic, assign) NSInteger startNumber;
 @property (nonatomic, assign) NSInteger endNumber;
-@property (nonatomic, strong, readonly) CADisplayLink *countDownTimer;
 @property (nonatomic, assign) NSUInteger countInterval; // default is 0. when it is 0, use sqrtf(endNumber - startNumber) which is faster.
 
 @property (nonatomic, assign) NSInteger currentNumber;
@@ -48,11 +47,6 @@ const NSString *kLSCountDownLabel_timer = @"kLSCountDownLabel_timer";
     if ([[self getAssociatedValueForKey:(__bridge void *)kLSCountDownLabel_startNumber] isEqual:[self getAssociatedValueForKey:(__bridge void *)kLSCountDownLabel_endNumber]]) {
         self.countDownHandeler ? self.countDownHandeler(self, self.currentNumber, YES) : nil;
         return;
-    }
-    
-    if (!self.countDownTimer) {
-        self.countDownTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(lsCountDown)];
-        self.countDownTimer.frameInterval = 1.;
     }
     
     [self.countDownTimer addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
@@ -142,7 +136,12 @@ const NSString *kLSCountDownLabel_timer = @"kLSCountDownLabel_timer";
 
 - (CADisplayLink *)countDownTimer
 {
-    return [self getAssociatedValueForKey:(__bridge void *)kLSCountDownLabel_timer];
+    CADisplayLink *countDownTimer = [self getAssociatedValueForKey:(__bridge void *)kLSCountDownLabel_timer];
+    if (!countDownTimer) {
+        countDownTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(lsCountDown)];
+        countDownTimer.frameInterval = 60.;
+    }
+    return countDownTimer;
 }
 
 - (void)setCountDownTimer:(CADisplayLink *)countDownTimer
