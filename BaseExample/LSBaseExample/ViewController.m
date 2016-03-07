@@ -97,6 +97,19 @@
     NSDictionary *dic = @{@"a": @1, @"b": @"2"};
     NSLog(@"%@", [dic toStringWithSplitString:@"&"]);
     
+    [self countDown:10];
+    
+    UILabel *countDownLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 300, 200, 30)];
+    [self.view addSubview:countDownLabel];
+    [countDownLabel countDownSetStartNumber:10000 endNumber:10 interval:1 countDownHandler:^(UILabel *label, NSInteger currentNumber, BOOL stopped) {
+        if (stopped) {
+            NSLog(@"stopped");
+            label.backgroundColor = [UIColor grayColor];
+        }
+        label.text = [NSString stringWithFormat:@"还剩%d秒", currentNumber];
+    }];
+    [countDownLabel countDownStart];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,6 +130,42 @@
 - (void)otherClick
 {
     NSLog(@"otherClick");
+}
+
+-(void)countDown:(int)count{
+    
+    if(count <=0){
+        
+        NSLog(@"wociao ");
+        
+        return;
+        
+    }
+    
+    UILabel* lblCountDown = [[UILabel alloc] initWithFrame:CGRectMake(260, 120, 50, 50)];
+    lblCountDown.textColor = [UIColor redColor];
+    lblCountDown.font = [UIFont boldSystemFontOfSize:66];
+    lblCountDown.backgroundColor = [UIColor clearColor];
+    
+    lblCountDown.text = [NSString stringWithFormat:@"%d", count];
+    [self.view addSubview:lblCountDown];
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseOut animations:^{
+                         
+                         lblCountDown.alpha = 0;
+                         lblCountDown.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
+                         
+                     }
+                     completion:^(BOOL finished) {
+                         
+                         [lblCountDown removeFromSuperview];
+                         //递归调用，直到计时为零
+                         [self countDown:count -1];
+                         
+                     }
+     
+     ];
+    
 }
 
 - (void)showAction

@@ -26,6 +26,7 @@
 		DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */; };
 		DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */; };
 		DE5BCF951C625C14004AFBC5 /* UITableView+indexPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */; };
+		DE6FC8FC1C8D604700F4AE1E /* UILabel+CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6FC8FB1C8D604700F4AE1E /* UILabel+CountDown.m */; };
 		DE75096A1C853DE800A50558 /* PropertyTypeTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7509691C853DE800A50558 /* PropertyTypeTestObj.m */; };
 		DE7B5C321C11256A00904476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C311C11256A00904476 /* main.m */; };
 		DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C341C11256A00904476 /* AppDelegate.m */; };
@@ -106,6 +107,8 @@
 		DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPhoneCallHelper.m; sourceTree = "<group>"; };
 		DE5BCF931C625C14004AFBC5 /* UITableView+indexPathCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+indexPathCell.h"; sourceTree = "<group>"; };
 		DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+indexPathCell.m"; sourceTree = "<group>"; };
+		DE6FC8FA1C8D604700F4AE1E /* UILabel+CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CountDown.h"; sourceTree = "<group>"; };
+		DE6FC8FB1C8D604700F4AE1E /* UILabel+CountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CountDown.m"; sourceTree = "<group>"; };
 		DE7509681C853DE800A50558 /* PropertyTypeTestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyTypeTestObj.h; sourceTree = "<group>"; };
 		DE7509691C853DE800A50558 /* PropertyTypeTestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyTypeTestObj.m; sourceTree = "<group>"; };
 		DE7B5C2D1C11256A00904476 /* LSBaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSBaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,6 +344,8 @@
 				DE03938B1C75CCB50022B2DC /* UITableView+LSRegisterCellClass.m */,
 				149B648C1C722747005272B6 /* UILabel+ContentInset.h */,
 				149B648D1C722747005272B6 /* UILabel+ContentInset.m */,
+				DE6FC8FA1C8D604700F4AE1E /* UILabel+CountDown.h */,
+				DE6FC8FB1C8D604700F4AE1E /* UILabel+CountDown.m */,
 				149B648F1C72C370005272B6 /* UIView+LSBorder.h */,
 				149B64901C72C370005272B6 /* UIView+LSBorder.m */,
 				14FD30F41C75BE0100BF233C /* NSObject+LSTopViewController.h */,
@@ -484,6 +489,7 @@
 				DE1C37D31C7C044B00D3F513 /* UIButton+TouchEnlarge.m in Sources */,
 				14FD30FC1C75D73300BF233C /* UIButton+LS.m in Sources */,
 				DE7B5C381C11256A00904476 /* ViewController.m in Sources */,
+				DE6FC8FC1C8D604700F4AE1E /* UILabel+CountDown.m in Sources */,
 				DE4F38DA1C1171D800D64EF6 /* UIControl+LS.m in Sources */,
 				DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */,
 				DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */,
