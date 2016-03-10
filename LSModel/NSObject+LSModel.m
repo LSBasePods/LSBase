@@ -151,8 +151,12 @@ static force_inline BOOL LSEncodingTypeIsCNumber(YYEncodingType type) {
         if (remoteValue) {
             // 基本类型数字处理
             if (LSEncodingTypeIsCNumber(nativePropertyInfo.type)) {
-                [self setValue:remoteValue forKey:nativeKey];
-            } else if (nativePropertyInfo.type & YYEncodingTypeObject) {
+                if ([remoteValue isKindOfClass:[NSNumber class]]) {
+                    [self setValue:remoteValue forKey:nativeKey];
+                } else {
+                    NSNumber *number = [NSNumber numberWithDouble:[NSString stringWithFormat:@"%@",remoteValue].doubleValue];
+                    [self setValue:number forKey:nativeKey];
+                }            } else if (nativePropertyInfo.type & YYEncodingTypeObject) {
                 NSString *nativeTypeClassName = [nativePropertyInfo.typeEncoding substringWithRange:NSMakeRange(2, nativePropertyInfo.typeEncoding.length - 3)];
                 Class nativeType = NSClassFromString(nativeTypeClassName);
                 // 类型一致
