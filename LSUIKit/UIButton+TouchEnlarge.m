@@ -63,6 +63,9 @@ static const NSString *kTouchEnlargeButton_right = @"kTouchEnlargeButton_right";
 
 - (UIView*)hitTest:(CGPoint) point withEvent:(UIEvent*) event
 {
+    if (self.hidden) {
+        return nil;
+    }
     CGRect rect = [self enlargedRect];
     if (CGRectEqualToRect(rect, self.bounds))
     {
