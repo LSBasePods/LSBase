@@ -12,7 +12,7 @@
 
 - (NSString *)priceValue
 {
-    return [NSString stringWithFormat:@"%.2f", [self floatValue]];
+    return [NSString stringWithFormat:@"%.2f", [self doubleValue]];
 }
 
 - (BOOL)isEqualToNumberSafe:(NSNumber *)number
