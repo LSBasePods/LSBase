@@ -80,6 +80,9 @@ CFAbsoluteTime const LSPHONECALLFAILEDTIME = -100;
 
 - (void)call:(NSString *)phoneNumber completion:(LKPhoneCallOverBlock)completion
 {
+    if (phoneNumber.length == 0) {
+        return;
+    }
     self.completion = completion;
     _countPhoneTime = YES;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phoneNumber]]]];
