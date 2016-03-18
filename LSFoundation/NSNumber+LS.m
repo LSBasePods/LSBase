@@ -15,6 +15,11 @@
     return [NSString stringWithFormat:@"%.2f", [self doubleValue]];
 }
 
+- (NSString *)locationValue
+{
+    return [NSString stringWithFormat:@"%.6f", [self doubleValue]];
+}
+
 - (BOOL)isEqualToNumberSafe:(NSNumber *)number
 {
     if (number) {

@@ -12,6 +12,13 @@
 
 - (NSString *)priceValue;
 
+/**
+ *  经纬度值，返回6位
+ *
+ *  @return 6位小数字符串
+ */
+- (NSString *)locationValue;
+
 - (BOOL)isEqualToNumberSafe:(NSNumber *)number;
 
 @end
