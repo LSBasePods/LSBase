@@ -10,7 +10,15 @@
 
 @interface NSString (LS)
 
+/**
+ 剔除前后的空格
+ */
 - (NSString *)trim;
+
+/**
+ 剔除所有的空格
+ */
+- (NSString *)trimAll;
 
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode;
 
