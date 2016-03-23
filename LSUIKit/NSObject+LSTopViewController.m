@@ -17,7 +17,8 @@
     return topViewController;
 }
 
-+ (UIViewController *)returnVisibleViewControllerForController:(UIViewController *)controller {
++ (UIViewController *)returnVisibleViewControllerForController:(UIViewController *)controller
+{
     if ([controller presentedViewController]) {
         return [self returnVisibleViewControllerForController:[controller presentedViewController]];
     } else if ([controller isKindOfClass:[UITabBarController class]]) {
