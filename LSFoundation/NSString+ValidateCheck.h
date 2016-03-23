@@ -20,14 +20,18 @@
 
 /**
  *  正则判断手机号是否合法
- *
  */
 - (BOOL)isValidateMobileNumber;
 
 /**
  *  正则判断邮箱是否合法
- *
  */
 - (BOOL)isValidateEmail;
+
+/**
+ *  手机号替换第三位到第六位为*
+ */
+- (NSString *)displaySafeMobile;
+
 
 @end

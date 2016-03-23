@@ -18,7 +18,7 @@
 
 - (BOOL)isValidateMobileNumber
 {
-    NSString *regex = @"^((13[0-9])|(147)|(15[^4,\\D])|(17[0-9])|(18[0-9]))\\d{8}$";
+    NSString *regex = @"^1[0-9]{10}$";
     return [self isValidateRegex:regex];
 }
 
@@ -26,6 +26,14 @@
 {
     NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     return [self isValidateRegex:regex];
+}
+
+- (NSString *)displaySafeMobile
+{
+    if ([self isValidateMobileNumber]) {
+        return [self stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    }
+    return self;
 }
 
 @end
