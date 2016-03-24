@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1405C8AC1CA388170064026A /* NSString+URLQueryResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1405C8AB1CA388170064026A /* NSString+URLQueryResolver.m */; };
 		140F74BD1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */; };
 		149B648E1C722747005272B6 /* UILabel+ContentInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B648D1C722747005272B6 /* UILabel+ContentInset.m */; };
 		149B64911C72C370005272B6 /* UIView+LSBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B64901C72C370005272B6 /* UIView+LSBorder.m */; };
@@ -68,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1405C8AA1CA388170064026A /* NSString+URLQueryResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLQueryResolver.h"; sourceTree = "<group>"; };
+		1405C8AB1CA388170064026A /* NSString+URLQueryResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLQueryResolver.m"; sourceTree = "<group>"; };
 		140F74BB1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LSImageAndTitleStyle.h"; sourceTree = "<group>"; };
 		140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LSImageAndTitleStyle.m"; sourceTree = "<group>"; };
 		149B648C1C722747005272B6 /* UILabel+ContentInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ContentInset.h"; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				DE7B5C651C112D4100904476 /* NSString+TreatAsNSNumber.m */,
 				DE7B5C681C112D4100904476 /* NSString+ValidateCheck.h */,
 				DE7B5C691C112D4100904476 /* NSString+ValidateCheck.m */,
+				1405C8AA1CA388170064026A /* NSString+URLQueryResolver.h */,
+				1405C8AB1CA388170064026A /* NSString+URLQueryResolver.m */,
 			);
 			name = LSFoundation;
 			path = ../LSFoundation;
@@ -494,6 +499,7 @@
 				DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */,
 				DE4F38DD1C1173A500D64EF6 /* UIBarButtonItem+LS.m in Sources */,
 				140F74BD1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m in Sources */,
+				1405C8AC1CA388170064026A /* NSString+URLQueryResolver.m in Sources */,
 				DE7B5C9F1C112D4100904476 /* UIColor+LSHex.m in Sources */,
 				DE7B5CA01C112D4100904476 /* UIImage+LSPS.m in Sources */,
 				DE5BCF951C625C14004AFBC5 /* UITableView+indexPathCell.m in Sources */,

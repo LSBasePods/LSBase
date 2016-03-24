@@ -12,6 +12,6 @@
 
 - (id)trim;
 
-- (NSString *)toStringWithSplitString:(NSString *)splitString;
+- (NSString *)toStringWithSplitString:(NSString *)splitString encode:(BOOL)encode;
 
 @end

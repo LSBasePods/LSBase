@@ -95,7 +95,7 @@
     [[LSUDIDGenerator sharedInstance] udid];
     
     NSDictionary *dic = @{@"a": @1, @"b": @"2"};
-    NSLog(@"%@", [dic toStringWithSplitString:@"&"]);
+    NSLog(@"%@", [dic toStringWithSplitString:@"&" encode:NO]);
     
     [self countDown:10];
     
@@ -106,7 +106,7 @@
             NSLog(@"stopped");
             label.backgroundColor = [UIColor grayColor];
         }
-        label.text = [NSString stringWithFormat:@"还剩%d秒", currentNumber];
+        label.text = [NSString stringWithFormat:@"还剩%ld秒", (long)currentNumber];
     }];
     [countDownLabel countDownStart];
     
@@ -150,7 +150,7 @@
     lblCountDown.text = [NSString stringWithFormat:@"%d", count];
     [self.view addSubview:lblCountDown];
     
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseOut animations:^{
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                          
                          lblCountDown.alpha = 0;
                          lblCountDown.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);

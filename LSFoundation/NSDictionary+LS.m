@@ -8,6 +8,7 @@
 
 #import "NSDictionary+LS.h"
 #import "NSObject+LSValueCheck.h"
+#import "NSString+URLQueryResolver.h"
 
 @implementation NSDictionary (LS)
 
@@ -24,7 +25,7 @@
     return tempDic;
 }
 
-- (NSString *)toStringWithSplitString:(NSString *)splitString
+- (NSString *)toStringWithSplitString:(NSString *)splitString encode:(BOOL)encode
 {
     NSString *string = @"";
     for (NSString *key in self.allKeys) {
@@ -33,7 +34,7 @@
         }
         id value = [self objectForKey:key];
         if ([value isKindOfClass:[NSString class]]) {
-            string = [NSString stringWithFormat:@"%@%@=%@", string, key, value];
+            string = [NSString stringWithFormat:@"%@%@=%@", string, key, [value QR_urlEncode]];
         } else if ([value isKindOfClass:[NSNumber class]]){
             string = [NSString stringWithFormat:@"%@%@=%@", string, key, [value stringValue]];
         }
