@@ -57,5 +57,20 @@
     return size.height;
 }
 
+- (NSInteger)charLength
+{
+    NSUInteger  charLength = 0;
+    for(int i=0; i< [self length];i++){
+        int a = [self characterAtIndex:i];
+        if( a > 0x4e00 && a < 0x9fff){ //判断是否为中文
+            charLength +=2;
+        }else{
+            charLength +=1;
+        }
+    }
+    
+    return charLength;
+}
+
 
 @end

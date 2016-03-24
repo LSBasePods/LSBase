@@ -46,4 +46,7 @@
  */
 - (CGFloat)heightForFont:(UIFont *)font width:(CGFloat)width;
 
+//区分中英文，一个中文2个字符
+- (NSInteger)charLength;
+
 @end
