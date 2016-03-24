@@ -23,3 +23,4 @@
 #import "NSString+Sha1.h"
 #import "NSString+TreatAsNSNumber.h"
 #import "NSString+ValidateCheck.h"
+#import "NSString+URLQueryResolver.h"
