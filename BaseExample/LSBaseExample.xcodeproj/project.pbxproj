@@ -27,6 +27,9 @@
 		DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */; };
 		DE4F38EF1C1198B500D64EF6 /* LSPhoneCallHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */; };
 		DE5BCF951C625C14004AFBC5 /* UITableView+indexPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */; };
+		DE65955D1CA5043D00E337FE /* LSSpotlightManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6595571CA5043D00E337FE /* LSSpotlightManager.m */; };
+		DE65955E1CA5043D00E337FE /* LSSpotlightSearchable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE65955A1CA5043D00E337FE /* LSSpotlightSearchable.m */; };
+		DE65955F1CA5043D00E337FE /* CSSearchableItemAttributeSet+LS.m in Sources */ = {isa = PBXBuildFile; fileRef = DE65955C1CA5043D00E337FE /* CSSearchableItemAttributeSet+LS.m */; };
 		DE6FC8FC1C8D604700F4AE1E /* UILabel+CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6FC8FB1C8D604700F4AE1E /* UILabel+CountDown.m */; };
 		DE75096A1C853DE800A50558 /* PropertyTypeTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7509691C853DE800A50558 /* PropertyTypeTestObj.m */; };
 		DE7B5C321C11256A00904476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B5C311C11256A00904476 /* main.m */; };
@@ -110,6 +113,13 @@
 		DE4F38ED1C1198B500D64EF6 /* LSPhoneCallHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPhoneCallHelper.m; sourceTree = "<group>"; };
 		DE5BCF931C625C14004AFBC5 /* UITableView+indexPathCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+indexPathCell.h"; sourceTree = "<group>"; };
 		DE5BCF941C625C14004AFBC5 /* UITableView+indexPathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+indexPathCell.m"; sourceTree = "<group>"; };
+		DE6595561CA5043D00E337FE /* LSSpotlightManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSpotlightManager.h; sourceTree = "<group>"; };
+		DE6595571CA5043D00E337FE /* LSSpotlightManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSpotlightManager.m; sourceTree = "<group>"; };
+		DE6595581CA5043D00E337FE /* LSSpotlightSearchableMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSpotlightSearchableMapping.h; sourceTree = "<group>"; };
+		DE6595591CA5043D00E337FE /* LSSpotlightSearchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSpotlightSearchable.h; sourceTree = "<group>"; };
+		DE65955A1CA5043D00E337FE /* LSSpotlightSearchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSpotlightSearchable.m; sourceTree = "<group>"; };
+		DE65955B1CA5043D00E337FE /* CSSearchableItemAttributeSet+LS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSSearchableItemAttributeSet+LS.h"; sourceTree = "<group>"; };
+		DE65955C1CA5043D00E337FE /* CSSearchableItemAttributeSet+LS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CSSearchableItemAttributeSet+LS.m"; sourceTree = "<group>"; };
 		DE6FC8FA1C8D604700F4AE1E /* UILabel+CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CountDown.h"; sourceTree = "<group>"; };
 		DE6FC8FB1C8D604700F4AE1E /* UILabel+CountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CountDown.m"; sourceTree = "<group>"; };
 		DE7509681C853DE800A50558 /* PropertyTypeTestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyTypeTestObj.h; sourceTree = "<group>"; };
@@ -367,6 +377,13 @@
 		DE7B5C821C112D4100904476 /* LSUtility */ = {
 			isa = PBXGroup;
 			children = (
+				DE6595561CA5043D00E337FE /* LSSpotlightManager.h */,
+				DE6595571CA5043D00E337FE /* LSSpotlightManager.m */,
+				DE6595581CA5043D00E337FE /* LSSpotlightSearchableMapping.h */,
+				DE6595591CA5043D00E337FE /* LSSpotlightSearchable.h */,
+				DE65955A1CA5043D00E337FE /* LSSpotlightSearchable.m */,
+				DE65955B1CA5043D00E337FE /* CSSearchableItemAttributeSet+LS.h */,
+				DE65955C1CA5043D00E337FE /* CSSearchableItemAttributeSet+LS.m */,
 				DE4F38EA1C1198B500D64EF6 /* LSFileAssistant.h */,
 				DE4F38EB1C1198B500D64EF6 /* LSFileAssistant.m */,
 				DE4F38EC1C1198B500D64EF6 /* LSPhoneCallHelper.h */,
@@ -489,6 +506,7 @@
 				DE4F38EE1C1198B500D64EF6 /* LSFileAssistant.m in Sources */,
 				DE7B5C931C112D4100904476 /* NSMutableDictionary+LSSafeSetObjectForKeyed.m in Sources */,
 				DEEF8D371C3BA0F500A499F9 /* User.m in Sources */,
+				DE65955D1CA5043D00E337FE /* LSSpotlightManager.m in Sources */,
 				DE7B5CA61C112D4100904476 /* UIView+LSFrame.m in Sources */,
 				DED6C9CF1C4F3357009F43C9 /* UINavigationController+LSPush.m in Sources */,
 				DE1C37D31C7C044B00D3F513 /* UIButton+TouchEnlarge.m in Sources */,
@@ -509,6 +527,7 @@
 				DE75096A1C853DE800A50558 /* PropertyTypeTestObj.m in Sources */,
 				DE7B5C901C112D4100904476 /* NSArray+LSSafeObjectAtIndex.m in Sources */,
 				DE7B5C9B1C112D4100904476 /* NSString+TreatAsNSNumber.m in Sources */,
+				DE65955E1CA5043D00E337FE /* LSSpotlightSearchable.m in Sources */,
 				DE7B5CA51C112D4100904476 /* UIView+LSAutoLayout.m in Sources */,
 				DE7B5C961C112D4100904476 /* NSObject+LSDictionaryRepresentation.m in Sources */,
 				DE4F38E01C1174C800D64EF6 /* UIGestureRecognizer+LS.m in Sources */,
@@ -518,6 +537,7 @@
 				149B648E1C722747005272B6 /* UILabel+ContentInset.m in Sources */,
 				DE7B5C941C112D4100904476 /* NSNull+LSNonCrash.m in Sources */,
 				14BE76261C8597CD00D7F24D /* LSAlertController.m in Sources */,
+				DE65955F1CA5043D00E337FE /* CSSearchableItemAttributeSet+LS.m in Sources */,
 				14FDF1DB1C4A1916001A81F9 /* UIViewMapping.m in Sources */,
 				DE7B5C351C11256A00904476 /* AppDelegate.m in Sources */,
 				149B64911C72C370005272B6 /* UIView+LSBorder.m in Sources */,
