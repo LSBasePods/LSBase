@@ -25,6 +25,7 @@
 
 - (void)autoPinEdgesToSuperviewWithInsets:(UIEdgeInsets)insets
 {
+    [self useAutoLayout];
     UIView *superView = self.superview;
     
     NSDictionary *view = @{@"contentView":self};
@@ -57,6 +58,7 @@
 #pragma mark Align with Related View
 - (void)autoAlign:(LSAutoLayoutAlignType)alignType relatedView:(UIView *)relatedView constant:(CGFloat)constant
 {
+    [self useAutoLayout];
     UIView *superview = [self ls_commonSuperviewWithView:relatedView];
     NSAssert(superview, @"View's superview must not be nil.\nView: %@", self);
     NSLayoutAttribute attribute = (NSLayoutAttribute)alignType;
@@ -65,6 +67,7 @@
 
 - (void)autoAlign:(LSAutoLayoutAlignType)alignType relatedView:(UIView *)relatedView relatedAlign:(LSAutoLayoutAlignType)relatedAlign constant:(CGFloat)constant
 {
+    [self useAutoLayout];
     UIView *superview = [self ls_commonSuperviewWithView:relatedView];
     NSAssert(superview, @"View's superview must not be nil.\nView: %@", self);
     NSLayoutAttribute attribute1 = (NSLayoutAttribute)alignType;
@@ -75,6 +78,7 @@
 #pragma mark Match Size
 - (void)autoMatchSizeType:(LSAutoLayoutSizeType)sizeType1 sizeType2:(LSAutoLayoutSizeType)sizeType2 rate:(CGFloat)rate
 {
+    [self useAutoLayout];
     UIView *superview = self.superview;
     NSAssert(superview, @"View's superview must not be nil.\nView: %@", self);
     [superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:(NSLayoutAttribute)sizeType1 relatedBy:NSLayoutRelationEqual toItem:self attribute:(NSLayoutAttribute)sizeType2 multiplier:rate constant:.0]];
@@ -82,6 +86,7 @@
 
 - (void)autoMatchSizeType:(LSAutoLayoutSizeType)sizeType1 relatedView:(UIView *)relatedView  sizeType2:(LSAutoLayoutSizeType)sizeType2 rate:(CGFloat)rate constant:(CGFloat)constant
 {
+    [self useAutoLayout];
     UIView *superview = [self ls_commonSuperviewWithView:relatedView];
     NSAssert(superview, @"View's superview must not be nil.\nView: %@", self);
     [superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:(NSLayoutAttribute)sizeType1 relatedBy:NSLayoutRelationEqual toItem:relatedView attribute:(NSLayoutAttribute)sizeType2 multiplier:rate constant:constant]];
@@ -119,6 +124,9 @@
 #pragma mark - for SuperView to Add Constaints with VFL String
 - (void)autoAddConstraintsWithVisualFormatArray:(NSArray *)formatArr options:(NSLayoutFormatOptions)opts metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
+    [views.allValues enumerateObjectsUsingBlock:^(UIView *  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        [view useAutoLayout];
+    }];
     for (NSString *format in formatArr) {
         NSAssert([format isKindOfClass:[NSString class]], @"formatArr must be array of NSString");
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:format options:opts metrics:metrics views:views]];
@@ -127,6 +135,9 @@
 
 - (void)autoAddConstraintsWithVisualFormatArray:(NSArray *)formatArr optionsArray:(NSArray *)optsArray metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
+    [views.allValues enumerateObjectsUsingBlock:^(UIView *  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        [view useAutoLayout];
+    }];
     [formatArr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSLayoutFormatOptions opts = [[optsArray objectAtIndex:idx] integerValue];
         NSAssert([obj isKindOfClass:[NSString class]], @"formatArr must be array of NSString");

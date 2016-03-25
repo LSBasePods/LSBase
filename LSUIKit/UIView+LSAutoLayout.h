@@ -27,12 +27,6 @@ typedef NS_ENUM(NSInteger, LSAutoLayoutSizeType) {
 
 @interface UIView (LSAutoLayout)
 
-#pragma mark - for SubViews
-/**
- 启用autolayout
- **/
-- (void)useAutoLayout;
-
 #pragma mark Pin Edges to SuperView
 /**
  *  全屏加子view
