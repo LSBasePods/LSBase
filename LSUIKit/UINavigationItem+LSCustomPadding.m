@@ -15,6 +15,6 @@
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     CGFloat defaultWidth = -16;
     negativeSpacer.width = defaultWidth - width;
-    return @[item, negativeSpacer];
+    return @[negativeSpacer, item];
 }
 @end
