@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1405C8AC1CA388170064026A /* NSString+URLQueryResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1405C8AB1CA388170064026A /* NSString+URLQueryResolver.m */; };
+		1405C8B91CA927E20064026A /* UINavigationItem+LSCustomPadding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1405C8B81CA927E20064026A /* UINavigationItem+LSCustomPadding.m */; };
 		140F74BD1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */; };
 		149B648E1C722747005272B6 /* UILabel+ContentInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B648D1C722747005272B6 /* UILabel+ContentInset.m */; };
 		149B64911C72C370005272B6 /* UIView+LSBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 149B64901C72C370005272B6 /* UIView+LSBorder.m */; };
@@ -74,6 +75,8 @@
 /* Begin PBXFileReference section */
 		1405C8AA1CA388170064026A /* NSString+URLQueryResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLQueryResolver.h"; sourceTree = "<group>"; };
 		1405C8AB1CA388170064026A /* NSString+URLQueryResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLQueryResolver.m"; sourceTree = "<group>"; };
+		1405C8B71CA927E10064026A /* UINavigationItem+LSCustomPadding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+LSCustomPadding.h"; sourceTree = "<group>"; };
+		1405C8B81CA927E20064026A /* UINavigationItem+LSCustomPadding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+LSCustomPadding.m"; sourceTree = "<group>"; };
 		140F74BB1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LSImageAndTitleStyle.h"; sourceTree = "<group>"; };
 		140F74BC1C4CD16F00D7580D /* UIButton+LSImageAndTitleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LSImageAndTitleStyle.m"; sourceTree = "<group>"; };
 		149B648C1C722747005272B6 /* UILabel+ContentInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ContentInset.h"; sourceTree = "<group>"; };
@@ -369,6 +372,8 @@
 				14FD30FE1C75D7DD00BF233C /* UILabel+LS.m */,
 				14BE76241C8597CD00D7F24D /* LSAlertController.h */,
 				14BE76251C8597CD00D7F24D /* LSAlertController.m */,
+				1405C8B71CA927E10064026A /* UINavigationItem+LSCustomPadding.h */,
+				1405C8B81CA927E20064026A /* UINavigationItem+LSCustomPadding.m */,
 			);
 			name = LSUIKit;
 			path = ../LSUIKit;
@@ -551,6 +556,7 @@
 				14FD30FF1C75D7DD00BF233C /* UILabel+LS.m in Sources */,
 				DE7B5C911C112D4100904476 /* NSDictionary+LS.m in Sources */,
 				DE7B5CA21C112D4100904476 /* UINavigationController+LSSafe.m in Sources */,
+				1405C8B91CA927E20064026A /* UINavigationItem+LSCustomPadding.m in Sources */,
 				DE7B5CAB1C112D4100904476 /* LSKeychain.m in Sources */,
 				14FD30F61C75BE0100BF233C /* NSObject+LSTopViewController.m in Sources */,
 				DE7B5C9A1C112D4100904476 /* NSString+Sha1.m in Sources */,
