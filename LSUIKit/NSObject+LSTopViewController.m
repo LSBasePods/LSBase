@@ -10,6 +10,12 @@
 
 @implementation NSObject (LSTopViewController)
 
++ (UIViewController *)rootViewControllerInWindow
+{
+    UIWindow *windows = [UIApplication sharedApplication].keyWindow;
+    return windows.rootViewController;
+}
+
 + (UIViewController *)topViewControllerInWindow
 {
     UIWindow *windows = [UIApplication sharedApplication].keyWindow;

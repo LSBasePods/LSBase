@@ -12,10 +12,14 @@
 @interface NSObject (LSTopViewController)
 
 /**
+ *  获取 windows.rootViewController;
+ */
++ (UIViewController *)rootViewControllerInWindow;
+
+/**
  *  等同于 returnVisibleViewControllerForController: windows.rootViewController;
  */
 + (UIViewController *)topViewControllerInWindow;
-
 
 /**
  *  在指定页面获取当前显示页面
